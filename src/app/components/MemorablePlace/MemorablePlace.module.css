@@ -1,0 +1,60 @@
+.memorableplacessection {
+    margin-top: 3%;
+    margin-left: 3%;
+}
+
+.memorableheading {
+    text-align: left;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    font-size: 25px;
+    margin-left: 0;
+    font-family: 'Mona Sans', sans-serif;
+}
+
+.memorableheading span {
+    color: orange;
+}
+
+.blog {
+    display: flex;
+    box-shadow: 
+        0px 4px 6px rgba(0, 0, 0, 0.05), /* Lighter bottom shadow */
+        0px -2px 4px rgba(0, 0, 0, 0.03); /* Subtle top shadow */
+    border-radius: 20px;
+    margin-right: 2%;
+}
+
+.blogcontent {
+    margin-top: 2%;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+.blogheading {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 1%;
+    margin-right: -100px;
+    font-family: 'Mona Sans', sans-serif;
+    margin: 0;
+}
+
+.mainblog3 {
+    margin-top: 2%;
+    align-items: left;
+    padding: 0;
+
+}
+
+.seemorebtn {
+    font-size: 16px;
+    margin-left: 400px;
+    color: #1890ff;
+    font-family: 'Mona Sans', sans-serif;
+    margin: 0;
+}
+
+.seemorebtn:hover {
+    text-decoration: underline;
+}

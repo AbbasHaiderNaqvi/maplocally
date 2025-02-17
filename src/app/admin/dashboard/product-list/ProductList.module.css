@@ -1,0 +1,195 @@
+/* Main layout for sidebar and content */
+.mainLayout {
+  display: flex;
+}
+
+.mainContent {
+  margin-left: 260px;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Header styling */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.headerTitle {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Search input styling */
+.searchInput {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-left: 20px;
+  width: 200px;
+  box-sizing: border-box;
+}
+
+.searchInput::placeholder {
+  color: #888;
+}
+
+/* Add New button */
+.addNewBtn {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  margin-left: 20px;
+}
+
+.addNewBtn:hover {
+  background-color: #45a049;
+}
+
+/* Table container styling */
+.tableContainer {
+  width: 100%;
+  overflow-x: auto;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+/* Product table styling */
+.productTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tableRow:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.tableRow:hover {
+  background-color: #f1f1f1;
+}
+
+.tableHeader {
+  padding: 12px 15px;
+  background-color: #f4f4f4;
+  font-weight: 600;
+  color: #333;
+  text-align: left;
+}
+
+.tableCell {
+  padding: 12px 15px;
+  color: #555;
+  text-align: left;
+}
+
+/* Product info styling */
+.productInfo {
+  display: flex;
+  align-items: center;
+}
+
+.productImage {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+/* Action buttons styling */
+.actionBtns {
+  display: flex;
+  gap: 5px;
+}
+
+.viewBtn, .editBtn, .deleteBtn {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.viewBtn {
+  background-color: #4CAF50;
+}
+
+.viewBtn:hover {
+  background-color: #45a049;
+}
+
+.editBtn {
+  background-color: #2196F3;
+}
+
+.editBtn:hover {
+  background-color: #1E88E5;
+}
+
+.deleteBtn {
+  background-color: #f44336;
+}
+
+.deleteBtn:hover {
+  background-color: #e53935;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .mainContent {
+    margin-left: 0;
+    padding: 10px;
+  }
+
+  .tableContainer {
+    padding: 10px;
+  }
+
+  .productTable {
+    width: 100%;
+  }
+
+  .tableHeader {
+    display: none;
+  }
+
+  .tableRow, .tableCell {
+    display: block;
+    width: 100%;
+  }
+
+  .tableRow {
+    margin-bottom: 15px;
+  }
+
+  .tableCell {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+
+  .tableCell::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 15px;
+    font-weight: bold;
+    text-align: left;
+  }
+}

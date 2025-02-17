@@ -1,0 +1,127 @@
+.mainsection {
+    margin-top: 10%;
+}
+
+.img {
+    margin-right: -25px;
+    border-radius: 20px;
+}
+
+.customCard {
+    margin-top: -20px;
+    margin-left: -22px;
+    margin-right: -60px;
+    border-radius: 20px;
+    overflow: hidden;
+    width: 550px;
+}
+
+.mapContainer {
+    margin-left: -65px;
+    height: 300px;
+    margin-top: -16px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: none;
+}
+
+.custommap {
+    margin-bottom: 0;
+    border-radius: 20px;
+    margin-right: 10px;
+    z-index: 1;
+}
+
+.hd {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 12px 0 10px 0;
+}
+
+/* Enable horizontal scrolling for recommendationContainer */
+.recommendationContainer {
+    margin-top: -50px;
+    margin-left: -65px;
+    padding-bottom: 8px;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* Change to column to stack heading and cards */
+}
+
+/* Adjust spacing and layout for recommendation cards */
+.recommendationScroll {
+    overflow-x: auto;
+    /* Enable horizontal scrolling */
+    display: flex;
+    scrollbar-width: none;
+    /* For Firefox */
+}
+
+.cardContainer {
+    width: 610px;
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+
+}
+
+/* Hide scrollbar for Webkit browsers */
+.recommendationScroll::-webkit-scrollbar {
+    display: none;
+    /* For Chrome, Safari, and Opera */
+}
+
+/* Adjust spacing and layout for recommendation cards */
+.recommendationCard {
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    transition: transform 0.2s, box-shadow 0.2s;
+    width: 250px;
+    height: 80px;
+    margin-right: 16px;
+    /* Add margin for spacing */
+    flex-shrink: 0;
+    /* Prevent cards from shrinking */
+}
+
+.recommendationCard img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-left: 8px;
+}
+
+.recommendationText {
+    flex: 1;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    margin-left: 8px;
+}
+
+/* Hover effect for recommendation cards */
+.recommendationCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.btn {
+    background-color: white;
+    color: black;
+    font-weight: 300;
+    position: relative;
+    border-radius: 20px;
+    left: 300px;
+    bottom: 300px;
+    z-index: 2;
+}
+
+.btn:hover {
+    background-color: black;
+    color: white;
+}

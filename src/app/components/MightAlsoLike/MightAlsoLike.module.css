@@ -1,0 +1,79 @@
+.mainsection {
+  margin: 2rem 0;
+  padding: 1rem;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.animatedSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  animation: fadeSlideIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.title {
+  margin-left: 60px;
+  margin-top: 90px;
+  margin-bottom: -10px;
+  font-family: 'Mona Sans', sans-serif;
+  font-weight: 500;
+}
+
+/* Media Queries for Responsiveness */
+
+/* For tablet screens and below */
+@media (max-width: 768px) {
+  .mainsection {
+    margin: 1.5rem 0;
+    padding: 1rem;
+  }
+
+  .animatedSection {
+    gap: 0.8rem;
+  }
+
+  .title {
+    margin-left: 20px; /* Reduce margin-left for better alignment */
+    margin-top: 60px; /* Reduce top margin */
+    margin-bottom: 0; /* Reset margin-bottom */
+    font-size: 24px; /* Adjust font size */
+  }
+}
+
+/* For mobile screens and below */
+@media (max-width: 480px) {
+  .mainsection {
+    margin: 1rem 0;
+    padding: 0.5rem; /* Adjust padding for mobile */
+  }
+
+  .animatedSection {
+    gap: 0.5rem; /* Reduce gap between items */
+  }
+
+  .title {
+    margin-left: 10px; /* Reduce left margin for mobile screens */
+    margin-top: 40px; /* Adjust margin-top for smaller screens */
+    font-size: 20px; /* Further reduce font size */
+  }
+}

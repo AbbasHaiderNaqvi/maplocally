@@ -1,0 +1,80 @@
+/* Outer Container */
+.container {
+  padding: 20px;
+}
+
+/* Custom Card */
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: #fff;
+  width: 90%;
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease;
+  height: 700px; 
+}
+
+
+/* Title Styling */
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: #333;
+  text-align: left;
+  width: 100%;
+}
+
+/* Image Styling */
+.image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 20px;
+  margin-bottom: 12px;
+}
+
+/* Info Section */
+.infoSection {
+  width: 100%;
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+.info {
+  font-size: 14px;
+  margin-bottom: 4px;
+  color: black;
+  font-weight: 400;
+  width: 100%;
+  text-align: left;
+}
+
+/* Link Styling */
+.link {
+  color: #007bff;
+  text-decoration: none;
+}
+.global{
+  margin-left: 10px;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+/* Description Styling */
+.description {
+  font-size: 14px;
+  color: black;
+  margin-top: 12px;
+  line-height: 1.6;
+}
+
+/* See More Button */
+.seeMore {
+  margin-top: 16px;
+  text-align: left;
+  margin-left: 3%;
+}

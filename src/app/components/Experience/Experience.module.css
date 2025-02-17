@@ -1,0 +1,134 @@
+.container {
+    text-align: left;
+    padding: 20px;
+    background-color: white;
+    max-width: 1000px;
+    margin: 20px 0;
+    margin-left: 2%;
+    margin-top: 5%;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    font-family: 'Mona Sans', sans-serif;
+}
+
+.section {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px; /* default spacing for all sections */
+}
+
+.label {
+    text-align: left;
+    font-weight: 600;
+    font-size: 16px;
+    font-family: 'Mona Sans', sans-serif;
+    height: 150px;
+}
+
+.content {
+    flex: 1 0 auto;
+    text-align: right;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(122, 126, 125);
+}
+
+.list {
+    padding-left: 20px;
+    list-style: none; /* Remove default bullets */
+    text-align: left;
+    margin: 0;
+    height: 150px;
+    margin-left: 50px;
+}
+
+.highlightList {
+    margin-left: 30px;
+}
+
+.list li {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    font-family: 'Mona Sans', sans-serif;
+    margin-bottom: 8px;
+    padding-left: 24px; /* Add padding to accommodate the custom bullet */
+    background: url('https://i.ibb.co/1zptnR7/Ellipse-1914.png') no-repeat left center;
+    background-size: 5px 5px; /* Adjust the size as needed */
+}
+
+.para {
+    font-size: 14px;
+    color: #000000;
+    font-family: 'Mona Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 150px;
+    margin-left: 50px;
+}
+
+.link {
+    color: orange;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.subtitle {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    margin-left: 70px;
+}
+
+/* Specific spacing adjustment for "Important information" section */
+.section-important-info {
+    margin-bottom: 10px; /* reduce bottom margin for this section */
+}
+
+.section-important-info .label {
+    margin-bottom: 0;
+}
+
+.section-important-info .content {
+    padding-top: 0; /* eliminate top padding to tighten space */
+    margin-top: 0; /* eliminate any top margin */
+}
+
+.impList {
+    padding-top: 5px; /* adjust if you need a little space */
+    margin-top: 0;
+    margin-left: 58px;
+}
+
+.list li {
+    padding-left: 10px;
+}
+
+.infosec {
+    margin-left: -30px;
+}
+
+/* Custom styling for includesList - no bullets and custom checkmark image */
+.includesList {
+    list-style: none;
+    padding-left: 0;
+}
+
+.includesList li {
+    background: url('https://i.ibb.co/Rzh6NDb/Vector.png') no-repeat left center;
+    background-size: 10px 9px;
+    padding-left: 24px;
+    margin-bottom: 8px;
+}
+
+.ant-col {
+    padding: 0 10px;
+}
+
+/* Responsive Styles for Small Screens (<550px) */
+/* Responsive Styles for Small Screens (<550px) */

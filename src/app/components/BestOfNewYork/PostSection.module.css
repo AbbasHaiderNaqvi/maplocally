@@ -1,0 +1,20 @@
+/* PostSection.module.css */
+
+.postSection {
+  padding: 20px;
+  background-color: white;
+  position: relative;
+  width: 80%;
+  margin-left: -20px;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 500;
+  font-family: 'Mona Sans', sans-serif;
+  margin-bottom: 0;
+  margin-left: -40px;
+  color: black;
+  text-align: left;
+
+}

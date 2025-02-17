@@ -1,0 +1,82 @@
+.reviewContainer {
+  width: 100%;
+  padding: 20px 0;
+  margin-top: 100px;
+  margin-left: -18px;
+}
+
+.row {
+  width: 90%;
+  margin: 0 auto; /* Center the content */
+  display: flex;
+  justify-content: space-between;
+}
+
+.leftSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.rightSection {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 100%;
+  padding-right: 0;
+  width: 100%;
+}
+
+.customerReviews {
+  width: 100%;
+}
+
+.heading {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.overallRating {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  gap: 15px;
+}
+.reviewspan{
+  text-decoration: underline;
+}
+.stars {
+  display: flex;
+  align-items: center;
+  color: #fadb14;
+  gap: 0px; /* Reduce gap to bring stars closer */
+}
+
+.ratingValue {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.reviewsCount {
+  color: #888;
+}
+
+.reviewSummary {
+  margin-top: 20px;
+}
+
+.summaryItem {
+  display: flex;
+  width: 100%;
+  margin-top: 5px;
+}
+
+.summaryItem > span {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.planeImageContainer {
+  margin-right: -100px;
+}

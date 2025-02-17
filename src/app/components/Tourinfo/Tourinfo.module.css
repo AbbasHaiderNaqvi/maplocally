@@ -1,0 +1,44 @@
+.tourinfo{
+  margin-bottom: 100px;
+}
+.detailRow {
+    display: flex;
+    align-items: flex-start;  /* Align items at the top (left) */
+    margin-bottom: 12px;  /* Reduce bottom spacing between rows */
+    margin-left: 4%;
+    margin-right: 3%;
+    
+}
+  
+  .icon {
+    margin-right: 20px;
+  }
+  
+  .textContainer {
+    flex: 1;  /* Make text container flexible to fill the space */
+  }
+  .hd{
+    margin: 0;
+    margin-left: 5%;
+    margin-bottom: -10px;
+    font-family: 'Mona Sans', sans-serif;
+
+  }
+
+  .title {
+    font-weight: 600;
+    font-size: 16px;
+    margin: 0;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-family: 'Mona Sans', sans-serif;
+  }
+  
+  .description {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+    margin-left: 10px;
+    font-family: 'Mona Sans', sans-serif;
+  }
+  

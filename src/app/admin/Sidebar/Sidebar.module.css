@@ -1,0 +1,60 @@
+.navbar {
+    background: #026880;
+    width: 20%;
+    height: 100vh;
+    display: inline-table;
+    position: fixed;
+    top: 0px;
+}
+
+.list {
+    text-align: center;
+    margin-top: 30%;
+    text-decoration: none;
+
+}
+
+.list li a {
+    text-decoration: none;
+    color: var(--secondary);
+    font-family: 'Mona Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 50px;
+    color: #fff;
+}
+
+.list li {
+    margin-bottom: 10%;
+    list-style: none;
+}
+
+.logo {
+    margin-top: 30%;
+    font-size: 30px;
+    font-weight: 700;
+    font-family: 'Mona Sans', sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.logoutbtn {
+    text-decoration: none;
+    color: #fff;
+    font-family: 'Mona Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 50px;
+    border: 0;
+    background: transparent;
+}
+
+.active {
+    display: flex;
+    align-items: center;
+    width: 230px;
+    height: 50px;
+    background-color: #000 !important;
+    border-radius: 20px;
+    color: #000;
+}

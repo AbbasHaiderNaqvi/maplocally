@@ -1,0 +1,268 @@
+.sidebar {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 250px;
+  margin-left: 15%;
+  margin-top: -650px;
+}
+
+.sidebar h3 {
+  font-size: 15px;
+  margin-bottom: 10px;
+  margin-top: 30px;
+  color: black;
+}
+
+.priceInputWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 10px;
+}
+
+.priceSeparator {
+  display: inline-block;
+  padding: 0 5px;
+  font-size: 16px;
+  color: #555;
+}
+
+.sidebar .ant-select, 
+.sidebar .ant-date-picker, 
+.sidebar .ant-input-number, 
+.sidebar .ant-slider {
+  width: 80%;
+  margin-bottom: 20px;
+}
+
+.ant-select-selector {
+  border-radius: 5px;
+  border-color: #d9d9d9;
+}
+
+.ant-select-selector:hover {
+  border-color: #40a9ff;
+}
+
+.ant-date-picker, 
+.ant-input-number {
+  border-radius: 5px;
+  border-color: #d9d9d9;
+}
+
+.ant-slider {
+  margin: 20px 0;
+}
+
+.ant-slider .ant-slider-handle {
+  border-radius: 50%;
+}
+
+.ant-slider:hover .ant-slider-handle {
+  border-color: #40a9ff;
+}
+
+.sidebar span {
+  font-weight: bold;
+  color: #333;
+}
+
+.ant-picker-dropdown {
+  font-size: 10px;
+  width: 150px;
+}
+
+.ant-picker-header {
+  height: 20px;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ant-picker-header .ant-picker-header-super-prev-btn, 
+.ant-picker-header .ant-picker-header-super-next-btn, 
+.ant-picker-header .ant-picker-header-prev-btn, 
+.ant-picker-header .ant-picker-header-next-btn {
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.ant-picker-year-btn, 
+.ant-picker-month-btn, 
+.ant-picker-decade-btn {
+  font-size: 10px;
+  padding: 2px 4px;
+}
+
+.ant-picker-content th, 
+.ant-picker-cell-inner {
+  height: 20px;
+  font-size: 10px;
+  padding: 0 4px;
+}
+
+.ant-picker-cell {
+  height: 24px;
+}
+
+.ant-picker-cell-inner:hover {
+  background-color: #e6f7ff;
+  border-radius: 4px;
+}
+
+.ant-picker-footer {
+  padding: 2px;
+}
+
+.ant-picker-today-btn {
+  font-size: 10px;
+  padding: 2px 4px;
+}
+
+.ant-picker-time-panel-column {
+  font-size: 10px;
+  padding: 2px;
+}
+
+.ant-picker-ok button {
+  font-size: 10px;
+  padding: 2px 4px;
+}
+
+.ant-select-dropdown {
+  text-align: left;
+}
+
+.ant-select-dropdown .ant-select-item {
+  display: flex;
+  justify-content: flex-start;
+  padding: 8px 12px;
+}
+
+.ant-select-item-option-state {
+  display: none;
+}
+
+.ant-select-item input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+.ant-input-number {
+  display: flex;
+  align-items: center;
+}
+
+.ant-input-number-handler-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.ant-input-number-handler-up, 
+.ant-input-number-handler-down {
+  display: block;
+  background: #f5f5f5;
+  border-radius: 2px;
+  border: 1px solid #d9d9d9;
+}
+
+.ant-input-number-handler:hover {
+  border-color: #40a9ff;
+}
+
+.ant-select-item-option {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.ant-select-item-option-content {
+  text-align: left;
+  flex-grow: 1;
+}
+
+/* this class is for category options which are showing in dropdown menu */
+.categoryoption {
+  text-align: left;
+  margin: 0 !important;
+  padding-left: 0;
+}
+
+.custom-datepicker {
+  width: 100%;
+  padding: 8px;
+  background-color: white;
+  border-radius: 5px; /* Match the border radius of other components */
+  font-size: 14px;
+  color: #333; /* Match text color */
+}
+
+.custom-datepicker:hover {
+  border-color: #40a9ff; /* Optional: Match hover effect */
+}
+
+.custom-datepicker:focus {
+  border-color: #40a9ff; /* Optional: Focus effect to match others */
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2); /* Ant Design style shadow */
+}
+
+.react-datepicker__header {
+  background-color: white; /* Change this to your desired color */
+  border-bottom: none; /* Optional: Removes the bottom border if needed */
+}
+
+/* Customize the current month text (e.g., October 2024) */
+.react-datepicker__current-month {
+  background-color: white;
+  color: #333; /* Optional: Change this to the text color you want */
+}
+
+/* Style for the day names row */
+.react-datepicker__day-names {
+  background-color:white; /* Same as the header background */
+}
+
+.categoryoption {
+  display: flex;
+  align-items: center;
+  padding-left: 0;
+  margin: 0;
+}
+
+.categoryoption input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+/* Updated Price Input Style */
+.custom-price-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 8px;
+  background-color: white;
+  border: 1px solid #d9d9d9;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #333;
+}
+
+.custom-price-input span {
+  font-weight: normal;
+  color: #333;
+}
+
+.custom-price-input .ant-input-number {
+  width: 40%;
+}
+
+.custom-price-input .priceSeparator {
+  font-size: 16px;
+  color: #555;
+}
+
+.custom-price-input:focus-within {
+  border-color: #40a9ff;
+}

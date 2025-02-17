@@ -1,0 +1,15 @@
+.mainsection {
+    margin-left: 1%;
+    margin-bottom: 5% ;
+    max-width: 1000px;
+    border: none !important;  /* Ensure the border is removed */
+    background-color: white;
+    box-shadow: none;
+}
+
+.description {
+    font-family: 'Mona Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 10px 0 8px 0;
+}

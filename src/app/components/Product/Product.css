@@ -1,0 +1,38 @@
+.product-heading1{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    align-items: center;
+    text-align: center;
+    font-size: 35px;
+    font-weight: 700;
+    line-height: 35px;
+}
+.product-paragraph1{
+    margin: 0;
+    padding-left: 22%;
+    padding-right: 22%;
+    align-items: center;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 25px;
+}
+.direction-btn{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    background-image: linear-gradient(to right, #04B2DA, #004758);
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 170px;
+    height: 42px;
+    border-radius: 30px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+}
+.btn-icon{
+    position: relative;
+    top: 3px;
+    right: 5px;
+}

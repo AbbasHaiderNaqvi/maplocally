@@ -1,0 +1,191 @@
+/* Card Row Container */
+.cardRowContainer {
+  position: relative;
+  width: 920px;
+  margin-left: -50px;
+}
+
+/* Card Row Styling */
+.cardRow {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  width: 100%;
+  gap: 10px; 
+  height: 400px;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.cardRow::-webkit-scrollbar {
+  display: none; /* Hide scrollbars in Chrome, Safari, and Edge */
+}
+
+/* Custom Card Styling */
+.customCard {
+  width: 350px;
+  height: 360px;
+  flex: 0 0 auto;
+  border: none; /* Remove the border */
+  border-radius: 8px; /* Rounded corners */
+  overflow: hidden;
+  margin: 20px 15px 0 5px; /* Remove any card margins */
+  box-shadow: 
+  0px 4px 6px rgba(0, 0, 0, 0.05), /* Lighter bottom shadow */
+  0px -2px 6px rgba(0, 0, 0, 0);   /* No top shadow */
+}
+
+
+/* Image Styling */
+.cardImage {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Card Content Styling */
+.cardContent {
+  padding: 10px; /* Add padding to space out content */
+}
+
+.cardTitle {
+  font-size: 16px;
+  color: #333;
+  margin-top: 10px;
+  overflow-wrap: break-word; /* Ensures long words break to the next line */
+  word-wrap: break-word;     /* For compatibility with older browsers */
+  word-break: break-word;    /* Ensures text will break at the end of a line */
+}
+
+.cardDescription {
+  font-size: 12px;
+  color: #989898;
+  margin: 10px 0px 0 0;
+}
+
+.price {
+  font-size: 16px;
+  color: #000;
+  font-weight: 500;
+  margin: 10px 0 0;
+}
+
+/* Tag Container Styling */
+/* Tag Container Styling */
+.tagContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px; /* Adjust gap between tags */
+  margin-top: 10px;
+}
+
+/* Optional: You can adjust the styling of the Ant Design Tag if needed */
+.tag {
+  font-size: 12px;
+  color: #4c8ca5;
+  border: none;
+  background-color: #e8f3fc;;
+  border-radius: 5px; /* Adjust border radius if desired */
+}
+
+/* Arrow button styles */
+.arrowButton {
+  background-color: white;
+  color: grey;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  border-radius: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+}
+
+.arrowButton.left {
+  left: 5px;
+  z-index: 1000;
+
+}
+
+.arrowButton.right {
+  right: 10px;
+  z-index: 1000;
+}
+
+.arrowButton:hover {
+  opacity: 0.6;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1200px) {
+  .customCard {
+    min-width: 250px;
+  }
+
+  .cardTitle {
+    font-size: 16px;
+  }
+
+  .price {
+    font-size: 14px;
+  }
+
+  .arrowButton {
+    font-size: 20px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .customCard {
+    min-width: 200px;
+  }
+
+  .cardTitle {
+    font-size: 14px;
+  }
+
+  .price {
+    font-size: 12px;
+  }
+
+  .arrowButton {
+    font-size: 18px;
+    padding: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cardRow {
+    gap: 5px; /* Reduce gap for mobile screens */
+  }
+
+  .customCard {
+    min-width: 150px; /* Smaller card size for mobile */
+  }
+
+  .cardImage {
+    height: 100px; /* Adjust image height for mobile */
+  }
+
+  .cardTitle {
+    font-size: 12px;
+  }
+
+  .price {
+    font-size: 10px;
+  }
+
+  .tag {
+    font-size: 10px; /* Adjust tag size for mobile */
+    padding: 1px 4px; /* Reduce padding for mobile */
+  }
+
+  .arrowButton {
+    font-size: 16px;
+    padding: 4px;
+  }
+}

@@ -1,0 +1,440 @@
+.contact_heading_main {
+    text-align: center;
+    margin-top: 10%;
+    color: var(--secondary);
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.contact_container {
+    border-radius: 24px;
+    background: #FFF;
+    box-shadow: 0px 0px 3.18027px 0px rgba(0, 0, 0, 0.25);
+    margin-top: 3%;
+    width: 100%;
+    max-width: 950px;
+    height: 700px;
+    margin: 0 auto;
+    margin-top: 5%;
+}
+.Row{
+    row-gap: none;
+    margin-left: 5%;
+    margin-top: 5%;
+}
+.Row1 {
+    margin-top: 5%;
+    margin-left: 5%;
+}
+
+.Row2 {
+    margin-left: 5%;
+}
+
+.TextArea {
+    margin-left: 3%;
+}
+.InputTextArea{
+    width: 880px;
+    border-radius: 7.951px;
+    border: 0.795px solid #9F9F9F;
+    font-size: 20px;
+    padding-top: 5px;
+}
+.s_label5{
+    color: #3C3939;
+    font-size: 22px!important;
+    font-style: normal;
+    font-weight: 600!important;
+    line-height: normal;
+    margin-left: 5%;
+    margin-bottom: 5%;
+}
+.s_label6{
+    color: #3C3939;
+    font-size: 22px!important;
+    font-style: normal;
+    font-weight: 600!important;
+    line-height: normal;
+    margin-left: 8%;
+}
+.s_label7{
+    display: none;
+    color: #3C3939;
+    font-size: 22px!important;
+    font-style: normal;
+    font-weight: 600!important;
+    line-height: normal;
+    margin-left: 5%;
+    margin-bottom: 5%;
+}
+
+.Input1,
+.Input2,
+.Link {
+    width: 400px;
+    height: 60.917px;
+    border-radius: 7.951px;
+    border: 0.795px solid #9F9F9F;
+    font-size: 16px;
+}
+.Input1::placeholder,
+.Input2::placeholder,
+.Link::placeholder{
+    color: #A19F9F;
+
+}
+.Input1:hover,
+.Input2:hover,
+.Link:hover {
+    border-color: #9F9F9F !important;
+}
+
+
+.Submit_Button {
+    margin-top: 25%;
+    border-radius: 30px;
+    background: #008EAF;
+    width: 130px;
+    height: 45px;
+    color: #fff;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+}
+.Submit_Button:hover {
+    background: #003B49!important;
+    width: 130px;
+    height: 45px;
+    color: #fff !important;
+    font-size: 16px;
+    border: 0.795px solid #9F9F9F!important;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+}
+
+
+@media (min-width:350px) and (max-width:500px){
+    .contact_heading_main {
+        text-align: center;
+        margin-top: 30%;
+        color: var(--secondary);
+        font-size: 25px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+    .contact_container {
+        border-radius: 24px;
+        background: #FFF;
+        box-shadow: 0px 0px 3.18027px 0px rgba(0, 0, 0, 0.25);
+        margin-top: 3%;
+        width: 100%;
+        max-width: auto;
+        height: 900px;
+        margin: 0 auto;
+        margin-top: 5%;
+    }
+    .Row{
+        margin-left: 5%;
+        margin-top: 0;
+        row-gap: 0!important;
+    }
+    .Row1 {
+        margin-left: 5%;
+        
+    }
+
+    .Row2 {
+        margin-left: 5%;
+    }
+
+    .Row3 {
+        margin-left: 5%;
+    }
+    .TextArea {
+        margin-left: 5%;
+    }
+    .InputTextArea{
+        width: 320px;
+        border-radius: 7.951px;
+        border: 0.795px solid #9F9F9F;
+        font-size: 20px;
+        padding-top: 5px;
+    }
+    .Input1,
+    .Input2,
+    .Link {
+        width: 320.015px;
+        height: 55.917px;
+        border-radius: 7.951px;
+        border: 0.795px solid #9F9F9F;
+        font-family: Poppins;
+        font-size: 15px;
+        padding-left: 20px;
+    }
+
+    .Input1:hover,
+    .Input2:hover,
+    .Link:hover {
+        border-color: #9F9F9F !important;
+    }
+
+    .Select {
+        width: 320.015px !important;
+        height: 55.917px;
+        border: 0.795px solid #9F9F9F;
+        border-radius: 7.951px;
+        margin-right: 5%;
+        font-family: Poppins;
+        font-size: 15px;
+    }
+    .s_label6{
+        display: none;
+        color: #3C3939;
+        font-size: 22px!important;
+        font-style: normal;
+        font-weight: 600!important;
+        line-height: normal;
+        margin-left: 8%;
+    }
+    .s_label7{
+        color: #3C3939;
+        font-size: 22px!important;
+        font-style: normal;
+        font-weight: 600!important;
+        line-height: normal;
+        margin-left: 5%;
+        margin-bottom: 5%;
+    }
+    .s_label8{
+        display:contents;
+        position: relative;
+        left: -110px;
+        color: #3C3939;
+        font-size: 22px!important;
+        font-style: normal;
+        font-weight: 600!important;
+        line-height: normal;
+        margin-left: 8%;
+    }
+    
+.Submit_Button {
+    margin-top: 10%;
+    border-radius: 30px;
+    background: var(--primary);
+    width: 150px;
+    height: 50px;
+    color: var(--secondary) !important;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+}
+.Submit_Button:hover {
+    background: var(--secondary);
+    color: var(--primary) !important;
+    border: 0.795px solid #9F9F9F!important;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+}
+}
+@media (min-width:500px) and (max-width:850px){
+    .contact_heading_main {
+        text-align: center;
+        margin-top: 10%;
+        color: var(--secondary);
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+    
+
+    .contact_container {
+        border-radius: 24px;
+        background: #FFF;
+        box-shadow: 0px 0px 3.18027px 0px rgba(0, 0, 0, 0.25);
+        margin-top: 3%;
+        width: 100%;
+        max-width: 1100px;
+        height: 700px;
+        margin: 0 auto;
+        margin-top: 5%;
+    }
+    .Row{
+        row-gap: none;
+        margin-left: 5%;
+        margin-top: 5%;
+    }
+    .Row1 {
+        margin-top: 5%;
+        margin-left: 5%;
+    }
+    
+    .Row2 {
+        margin-left: 5%;
+    }
+    
+    .TextArea {
+        margin-left: 3%;
+    }
+    .InputTextArea{
+        width: 710px;
+        border-radius: 7.951px;
+        border: 0.795px solid #9F9F9F;
+        font-size: 20px;
+        padding-top: 5px;
+    }
+    .Input1,
+    .Input2,
+    .Link {
+        width: 300px;
+        height: 55.917px;
+        border-radius: 7.951px;
+        border: 0.795px solid #9F9F9F;
+        font-size: 20px;
+        padding-left: 20px;
+    }
+
+    .Input1:hover,
+    .Input2:hover,
+    .Link:hover {
+        border-color: #9F9F9F !important;
+    }
+    .Submit_Button {
+        margin-top: 25%;
+        border-radius: 30px;
+        background: var(--primary);
+        width: 170px;
+        height: 60px;
+        color: var(--secondary) !important;
+        font-size: 25px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    
+    }
+    .Submit_Button:hover {
+        background: var(--secondary);
+        width: 170px;
+        height: 60px;
+        color: var(--primary) !important;
+        border: 0.795px solid #9F9F9F!important;
+        font-size: 25px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    
+    }
+    
+}
+@media (min-width:850px) and (max-width:1100px){
+    .contact_heading_main {
+        text-align: center;
+        margin-top: 15%;
+        color: var(--secondary);
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+    
+    .contact_container {
+        border-radius: 24px;
+        background: #FFF;
+        box-shadow: 0px 0px 3.18027px 0px rgba(0, 0, 0, 0.25);
+        margin-top: 3%;
+        width: 100%;
+        max-width: 1000px;
+        height: 700px;
+        margin: 0 auto;
+        margin-top: 5%;
+    }
+    .Row{
+        row-gap: none;
+        margin-left: 5%;
+        margin-top: 5%;
+    }
+    .Row1 {
+        margin-top: 5%;
+        margin-left: 5%;
+    }
+    
+    .Row2 {
+        margin-left: 5%;
+    }
+    
+    .TextArea {
+        margin-left: 3%;
+    }
+    .InputTextArea{
+        width: 940px;
+        border-radius: 7.951px;
+        border: 0.795px solid #9F9F9F;
+        font-size: 20px;
+        padding-top: 5px;
+    }
+    .Input1,
+    .Input2,
+    .Input3,
+    .Input4,
+    .Input5 {
+        width: 440px!important;
+        height: 65.917px;
+        border-radius: 7.951px;
+        border: 0.795px solid #9F9F9F;
+        font-size: 15px;
+        padding-left: 20px;
+    }
+    
+    .Input6 {
+        width: 975px;
+        height: 65.917px;        
+        border-radius: 7.951px;
+        border: 0.795px solid #9F9F9F;
+        margin-left: 3%;
+        font-size: 18px;
+        margin-top: 1%;
+        padding-left: 20px;
+    }
+    
+    
+
+.Submit_Button {
+    margin-top: 25%;
+    border-radius: 30px;
+    background: var(--primary);
+    width: 170px;
+    height: 60px;
+    color: var(--secondary) !important;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+}
+.Submit_Button:hover {
+    background: var(--secondary);
+    width: 170px;
+    height: 60px;
+    color: var(--primary) !important;
+    border: 0.795px solid #9F9F9F!important;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+}
+
+}

@@ -1,0 +1,235 @@
+.main {
+  margin-top: 5%;
+  margin: auto;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+
+.herosection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 3%;
+  max-width: 1200px;
+  height: 600px;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroImage {
+  margin-top: -15px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.content {
+  z-index: 2;
+  text-align: center;
+  width: 100%;
+  padding: 0 10%;
+  color: #fff;
+}
+
+.heading {
+  margin-top: 20px;
+  padding-bottom: 10px;
+  margin-left: -80px;
+  font-size: 35px;
+  width: 800px;
+  font-family: 'Mona Sans', sans-serif;
+}
+
+.paragraph {
+  line-height: 30px;
+  font-size: 20px;
+  font-family: 'Mona Sans', sans-serif;
+  margin: 0 auto;
+}
+
+.searchbar {
+  display: flex;
+  align-items: center;
+  width: 500px;
+  font-family: 'Mona Sans', sans-serif;
+  margin: 20px auto;
+  z-index: 2;
+}
+
+.input {
+  height: 50px;
+  font-size: 16px;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  color: black;
+
+  border-radius: 10px;
+  flex: 1;
+}
+
+.searchButton {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2c9ba5;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+  right: 50px;
+  top: 5px;
+}
+
+.searchButton:hover {
+  background-color: #096b75;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+  .heroImage {
+    margin-top: -15px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  .heading {
+    font-size: 30px;
+    margin-left: -150px;
+  }
+
+  .paragraph {
+    font-size: 18px;
+  }
+
+  .searchbar {
+    width: 80%;
+  }
+}
+
+@media (max-width: 1102px) {
+  .heroImage {
+    margin-top: -15px;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  .heading {
+    font-size: 27px;
+  }
+
+  .paragraph {
+    font-size: 14.4px;
+  }
+
+  .searchbar {
+    width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  .herosection {
+  
+    margin-top: 90px;
+  }
+  .heading {
+    font-size: 20px;
+    margin-top: -165px;
+    margin-left: -220px;
+  }
+
+  .paragraph {
+    font-size: 12px;
+    margin-top: -10px;
+
+  }
+
+  .searchbar {
+    width: 80%;
+    margin-top: -10px;
+
+  }
+
+  .heroImage {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  .input {
+    height: 30px;
+    width: 50%;
+    font-size: 14px;
+    margin-left: 20px;
+    margin-top: -120px;
+  }
+
+  .searchButton {
+    height: 25px;
+    width: 25px;
+    margin-top: -130px;
+    margin-left: 10px;
+
+  }
+}
+
+@media (max-width: 480px) {
+  .herosection {
+    height: 400px;
+    width: auto;
+    margin-top: 90px;
+  }
+
+  .heading {
+    margin-top: -120px;
+    margin-left: -260px;
+    font-size: 15px;
+  }
+
+  .paragraph {
+    font-size: 10px;
+    line-height: 1;
+  }
+
+  .searchbar {
+    width: 80%;
+  }
+
+  .input {
+    height: 25px;
+    margin-top: -120px;
+    margin-right: -10px;
+    margin-left: 20px;
+    font-size: 10px;
+    width: 80%;
+  }
+
+  .searchButton {
+    height: 24px;
+    width: 24px;
+    position: relative;
+    top: -60px;
+    right: 20px;
+  }
+}

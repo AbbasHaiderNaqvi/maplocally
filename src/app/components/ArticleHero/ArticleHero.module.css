@@ -1,0 +1,218 @@
+.main {
+  margin-top: 5%;
+  margin-right:3% ;
+  margin-left: 3%;
+}
+
+.herosection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 20px;
+  margin-top: 8%;
+  width: 98%;
+  height: 200px; /* Make height flexible for better responsiveness */
+  position: relative;
+  background: transparent;
+  overflow: hidden; /* Hide any overflow caused by image adjustments */
+}
+
+.heroImage {
+  width: 100%;
+  height: 200px; /* Fixed height */
+  object-fit: cover; /* Ensures the image is cropped proportionally */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.content {
+  z-index: 2;
+  text-align: center;
+  width: 100%;
+  padding: 0 10%;
+  color: #fff;
+}
+
+.heading {
+  padding-bottom: 10px;
+  font-size: 15px;
+  font-weight: 400;
+  font-family: 'Mona Sans', sans-serif;
+}
+.heading {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.hashtagList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+}
+
+.hashtagList li {
+  display: inline;
+  font-size: 15px;
+  font-weight: 300;
+  margin-right: 20px;
+  color: white; /* Adjust color as needed */
+}
+
+.paragraph {
+  line-height: 20px;
+  font-family: 'Mona Sans', sans-serif;
+  margin: 0 auto;
+}
+
+/* Search bar..... */
+.searchbar {
+  display: flex;
+  align-items: center;
+  width:500px;
+  height: 60px;
+  font-family: 'Mona Sans', sans-serif;
+  margin: 20px auto;
+  z-index: 2;
+}
+
+.input {
+  height: 60px;
+  font-size: 16px;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 10px;
+  flex: 1;
+}
+
+.searchButton {
+  height: 40px;
+  font-weight: 800;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #509ca3;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+  right: 50px;
+  top: 8px;
+}
+
+.searchButton:hover {
+  background-color: #096b75;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+  .heading {
+    font-size: 30px;
+  }
+  .paragraph {
+    font-size: 18px;
+  }
+  .searchbar {
+    width: 80%;
+  }
+}
+
+@media (max-width: 992px) {
+  .heading {
+    font-size: 28px;
+  }
+  .paragraph {
+    font-size: 16px;
+  }
+  .searchbar {
+    width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .herosection {
+    height: auto; /* Allows content to dictate height */
+    padding: 10px 5%; /* Adjust padding for smaller screens */
+    flex-direction: column; /* Stack items vertically */
+  }
+
+  .heroImage {
+    width: 100%; /* Ensure it takes up full width */
+    height: 200px; /* Maintain consistent height */
+    object-fit: cover; /* Maintain aspect ratio */
+  }
+
+  .content {
+    padding: 0 5%; /* Reduce padding for better fit */
+    text-align: center;
+  }
+
+  .heading {
+    font-size: 22px; /* Adjust heading size */
+    margin-top: 10px; /* Add spacing for visual separation */
+  }
+
+  .hashtagList li {
+    font-size: 14px; /* Reduce font size for tags */
+    margin-right: 10px; /* Adjust spacing between tags */
+  }
+
+  .searchbar {
+    width: 90%; /* Take most of the screen width */
+    margin-top: 20px; /* Add spacing for readability */
+  }
+
+  .input {
+    height: 50px; /* Reduce height for smaller screens */
+    font-size: 14px; /* Adjust font size */
+  }
+
+  .searchButton {
+    height: 40px;
+    width: 40px;
+  }
+}
+@media (max-width: 480px) {
+  
+
+
+  .content {
+    padding: 0 5%; /* Adjust padding for better readability */
+  }
+
+  
+  .paragraph {
+    font-size: 12px; /* Slightly smaller text for mobile */
+    line-height: 1.5; /* Improve readability */
+  }
+
+  .hashtagList {
+    font-size: 12px; /* Reduce tag size */
+    margin-top: 10px; /* Add spacing above tags */
+  }
+
+  .searchbar {
+    width: 100%; /* Adjust to fit the screen */
+    margin-top: 38px; /* Space above the search bar */
+    margin-bottom: 0;
+  }
+
+  .input {
+    font-size: 14px; /* Adjust font size for smaller input fields */
+    height: 45px; /* Reduce height for mobile */
+  }
+
+  .searchButton {
+    width: 28px; /* Smaller button size */
+    height: 28px;
+    margin-bottom: 20px;
+    margin-right: -10px;
+    margin-left: 10px;
+  }
+}

@@ -1,0 +1,76 @@
+.page{
+    background-color: #fff;
+}
+.admin_image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.heading{
+    text-align: center;
+    margin-top: 3%;
+    margin-bottom: 1%;
+    font-size: 25px;
+    color: #fff;
+}
+.paragraph{
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+    padding-left: 5%;
+    padding-right: 5%;
+    font-weight: 400;
+    line-height: 25px;
+}
+.image_section{
+    background-color: #026880;
+    width: 100%;
+    height: 607px;
+}
+.login_container {
+    display: flex;
+    justify-content: center;
+    width: 500px;
+    height: 300px;
+    background: white;
+    border-radius: 10px;
+}
+.input1, .input2{
+    width: 330px;
+    height: 45px;
+    border: solid 1px #a9a2a2;
+}
+.login_form{
+    width: 300px;
+}
+.login_heading{
+    margin-top: 10%;
+    margin-bottom: 10%;
+    display: flex;
+    justify-content: center;
+    color: #000;
+    font-family: 'Mona Sans', sans-serif;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px;
+    text-align: center;
+    line-height: 35px;
+
+}
+.login_button {
+    display: flex;
+    color: #FFF !important;
+    width: 200px;
+    height: 45px;
+    justify-content: center;
+    background-color: #026880;
+    font-size: 16px;
+    font-family: 'Mona Sans', sans-serif;
+    font-weight: 500;
+    line-height: 27px;
+}
+.login_button:hover{
+    background-color: #026880 !important;
+}   

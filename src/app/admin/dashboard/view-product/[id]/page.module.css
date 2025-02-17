@@ -1,0 +1,82 @@
+/* Container for the entire product details */
+.productDetailsContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+  }
+  
+  /* Product Title */
+  .productTitle {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  /* Slider container for the image carousel */
+  .sliderContainer {
+    margin-bottom: 30px;
+    max-width: 600px; /* Limit the width of the slider */
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Styling for each product image in the carousel */
+  .productImage {
+    width: 100%; /* Set image width to fit within the carousel */
+    max-width: 300px; /* Set a maximum width to make images smaller */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 0 auto; /* Center the images in the carousel */
+  }
+  
+  /* Product info section with description */
+  .productInfo {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  /* Styling for product description */
+  .productDescription {
+    flex: 1;
+  }
+  
+  /* Styling for product meta section (tags, date, etc.) */
+  .productMeta {
+    flex: 1;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Styling for Highlights and Includes section */
+  .highlightsIncludes {
+    margin-top: 40px;
+  }
+  
+  .highlightsIncludes h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+  
+  .highlightsIncludes ul {
+    padding-left: 20px;
+  }
+  
+  .highlightsIncludes li {
+    list-style-type: disc;
+    margin-bottom: 5px;
+  }
+  
+  /* Responsive styling for smaller screens */
+  @media screen and (max-width: 768px) {
+    .productInfo {
+      flex-direction: column;
+    }
+  }
+  

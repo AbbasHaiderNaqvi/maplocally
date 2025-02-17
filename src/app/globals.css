@@ -1,0 +1,118 @@
+@import url('https://fonts.cdnfonts.com/css/mono-sans');
+
+* {
+  box-sizing: border-box;
+  margin: auto;
+  padding: 0px;
+  font-family: 'Mona Sans', sans-serif;
+
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.ant-collapse {
+  border: none;
+  background-color: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.08),
+    /* Lighter bottom shadow */
+    0px -2px 6px rgba(0, 0, 0, 0.05);
+  /* Lighter top shadow */
+  border-radius: 8px;
+  padding: 5px;
+
+}
+
+.ant-collapse-item {
+  border-top: none;
+  margin: 5px;
+  border: none;
+  box-shadow: 0 0 0 0;
+}
+
+.ant-collapse-header {
+  padding: 0;
+  border: none;
+  margin: 0;
+  padding: 0;
+  padding-left: 100px;
+}
+
+.react-datepicker__current-month {
+  background-color: white;
+  font-weight: 200;
+  color: red;
+  /* Optional: Change this to the text color you want */
+}
+
+.react-datepicker__header {
+  background-color: white;
+  /* Change this to your desired color */
+  border-bottom: none;
+  /* Optional: Removes the bottom border if needed */
+}
+
+/* Style for the day names row */
+.react-datepicker__day-names {
+  background-color: white;
+  /* Same as the header background */
+}
+
+/* Change the background color of selected date */
+.react-datepicker__day--selected {
+  background-color: #ff7f50;
+  color: white;
+}
+
+/* Style the header */
+.react-datepicker__header {
+  background-color: white;
+  font-weight: 300;
+}
+
+/* Style the input field */
+.react-datepicker__input-container input {
+  border: 1px solid rgb(207, 204, 204);
+  padding: 8px;
+  border-radius: 5px;
+  width: 210px;
+}
+
+
+.react-datepicker__time-box {
+  background-color: white;
+}
+
+body {
+  font-family: 'Mona Sans', sans-serif;
+  overflow-x: hidden;
+  max-width: 1440px;
+  background-color: white;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 6px;
+}
+
+/* handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* the track */
+::-webkit-scrollbar-track {
+  background: white;
+}
+
+@media screen and (min-width: 1920px) {
+  body {
+    max-width: 1920px;
+  }
+}

@@ -1,0 +1,172 @@
+.cardRowContainer {
+  position: relative;
+  width: 85%;
+  margin-left: 6.5%;
+}
+
+.cardRow {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  height: 400px;
+  max-width: 100%;
+  gap: 10px; 
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.cardRow::-webkit-scrollbar {
+  display: none;
+}
+
+.customCard {
+  width: 350px;
+  height: 360px;
+  flex: 0 0 auto;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05), /* Lighter bottom shadow */
+  0px -2px 6px rgba(0, 0, 0, 0);   /* No top shadow */
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 0 15px 0 10px; /* Remove any card margins */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cardImage {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.cardContent {
+  padding: 10px;
+}
+
+.cardTitle {
+  font-size: 16px;
+  color: #333;
+  margin-top: 10px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.cardDescription {
+  font-size: 12px;
+  color: #989898;
+  margin: 10px 0px 0 0;
+}
+
+.price {
+  font-size: 16px;
+  color: #000;
+  font-weight: 500;
+  margin: 0px 0 0;
+}
+
+.customImage {
+  width: 40px;
+  margin: 0;
+  margin-left: -8px;
+  margin-top: -8px;
+}
+
+.arrowButton {
+  background-color: white;
+  color: grey;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  border-radius: 100px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+}
+
+.arrowButton.left {
+  left: 5px;
+}
+
+.arrowButton.right {
+  right: 25px;
+}
+
+.arrowButton:hover {
+  opacity: 0.6;
+}
+
+.link {
+  text-decoration: none;
+}
+
+@media (max-width: 1200px) {
+  .customCard {
+    min-width: 250px;
+  }
+
+  .cardTitle {
+    font-size: 16px;
+  }
+
+  .price {
+    font-size: 14px;
+  }
+
+  .arrowButton {
+    font-size: 20px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .customCard {
+    min-width: 200px;
+  }
+
+  .cardTitle {
+    font-size: 14px;
+  }
+
+  .price {
+    font-size: 12px;
+  }
+
+  .arrowButton {
+    font-size: 18px;
+    padding: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cardRow {
+    gap: 5px;
+  }
+
+  .customCard {
+    min-width: 130px;
+  }
+
+  .cardImage {
+    height: 250px;
+  }
+
+  .cardTitle {
+    font-size: 12px;
+  }
+
+  .price {
+    font-size: 10px;
+  }
+
+  .tag {
+    font-size: 10px; 
+    padding: 1px 4px;
+  }
+
+  .arrowButton {
+    font-size: 16px;
+    padding: 4px;
+  }
+}

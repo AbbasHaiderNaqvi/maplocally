@@ -1,0 +1,216 @@
+/* Card Row Container */
+.cardRowContainer {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 5%;
+  margin-left: 2%;
+  width: max-content;
+  margin-top: 20px;
+  overflow: hidden; /* Prevent overflow on small screens */
+}
+
+/* Card Row Styling */
+.cardRow {
+  display: flex;
+  flex-wrap: nowrap; /* Default: horizontal scrolling */
+  overflow-x: auto; /* Allow horizontal scrolling */
+  scroll-behavior: smooth;
+  max-width: 100%; /* Keep the row within the viewport */
+  gap: 15px; /* Adjust spacing between cards */
+  padding: 0 20px; /* Add padding to prevent cards from touching screen edges */
+  -ms-overflow-style: none; /* IE and Edge scrollbar */
+  scrollbar-width: none; /* Firefox scrollbar */
+}
+
+.cardRow::-webkit-scrollbar {
+  display: none; /* Hide scrollbars in Chrome, Safari, and Edge */
+}
+
+/* Custom Card Styling */
+.customCard {
+  flex: 0 0 calc(25% - 15px); /* Default: 4 cards per row */
+  max-width: 300px; /* Constrain the maximum width */
+  height: auto; /* Allow cards to adjust height */
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 0; /* Remove extra margins */
+  box-shadow: 
+    0px 4px 6px rgba(0, 0, 0, 0.05), /* Lighter bottom shadow */
+    0px -2px 6px rgba(0, 0, 0, 0); /* No top shadow */
+  transition: transform 0.3s ease-in-out; /* Smooth scaling effect */
+}
+
+/* Hover Effect for Custom Card */
+.customCard:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Image Styling */
+.cardImage {
+  width: 100%;
+  height: 200px; /* Default image height */
+  object-fit: cover; /* Maintain aspect ratio */
+}
+
+/* Card Content Styling */
+.cardContent {
+  padding: 10px;
+}
+
+.cardTitle {
+  font-size: 16px;
+  color: #333;
+  margin: 0;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.cardDescription {
+  font-size: 12px;
+  color: #7d7c7c;
+  margin: -5px 0 8px 0;
+}
+
+.price {
+  font-size: 16px;
+  color: #000;
+  font-weight: 500;
+  margin: 10px 0 0;
+}
+
+/* Tag Container Styling */
+.tagContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px; /* Adjust gap between tags */
+  margin: 5px 0 20px 0;
+}
+
+.tag {
+  font-size: 12px;
+  color: #787676;
+  border: none;
+  background-color: #edefef;
+  border-radius: 5px; /* Add rounded corners */
+  padding: 3px 8px; /* Add padding for better look */
+}
+
+.guranteeTag {
+  margin-top: 5px;
+  padding: 2px 5px;
+  font-size: 12px;
+  color: #dcbf01;
+  border-color: #dcbf01;
+  background-color: white;
+  border-radius: 5px;
+}
+
+/* Arrow Button Styles */
+.arrowButton {
+  background-color: white;
+  opacity: 0.4;
+  color: black;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+}
+
+.arrowButton.left {
+  left: -50px;
+}
+
+.arrowButton.right {
+  right: -50px;
+}
+
+.arrowButton:hover {
+  opacity: 0.6;
+}
+
+/* Additional Text Styling */
+.additionalText {
+  font-size: 14px;
+  color: #080808;
+  margin-top: 20px;
+  width: 420px;
+}
+
+/* New Button Styling */
+.openMapButton {
+  font-size: 14px;
+  color: #000;
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 8px 12px;
+  margin-top: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.openMapButton:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1200px) {
+  .customCard {
+    flex: 0 0 calc(33.33% - 15px); /* 3 cards per row */
+  }
+}
+@media (max-width: 768px) {
+  .customCard {
+    flex: 0 0 calc(50% - 10px); /* 2 cards per row */
+    max-width: none;
+  }
+
+  .cardImage {
+    height: 200px; /* Increased image height */
+  }
+
+  .cardContent {
+    padding: 15px; /* Add more padding for better aesthetics */
+  }
+}
+
+@media (max-width: 480px) {
+  .customCard {
+    flex: 0 0 100%; /* Full-width cards */
+    max-width: none;
+  }
+
+  .cardImage {
+    height: 200px; /* Increased image height for smaller screens */
+  }
+
+  .cardContent {
+    padding: 12px; /* Maintain content spacing */
+  }
+
+  .cardTitle {
+    font-size: 16px; /* Slightly larger font for better readability */
+  }
+
+  .price {
+    font-size: 14px;
+  }
+
+  .tag {
+    font-size: 12px; /* Slightly larger font for tags */
+    padding: 4px 8px; /* Increase padding for tags */
+  }
+
+  .arrowButton {
+    font-size: 18px;
+    padding: 6px;
+  }
+}
