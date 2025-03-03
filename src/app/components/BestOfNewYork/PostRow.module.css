@@ -24,6 +24,7 @@
 
 /* Custom Card Styling */
 .customCard {
+  cursor: pointer;
   width: 350px;
   height: 360px;
   flex: 0 0 auto;

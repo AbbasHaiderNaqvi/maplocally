@@ -14,7 +14,7 @@ const { Option } = Select;
 
 const ArticleForm = () => {
   const router = useRouter();
-  // const searchParams = useSearchParams();
+  const searchParams = useSearchParams();
   const [form] = Form.useForm();
   const [articleId, setArticleId] = useState(null);
   const [userImage, setUserImage] = useState(null);
@@ -23,17 +23,13 @@ const ArticleForm = () => {
   const [placesDetails, setPlacesDetails] = useState([]);
   const API_KEY = "8e847b93a52f4c9ee3af71bb7f3462da";
 
-
   useEffect(() => {
-    if (typeof window !== "undefined") {  // Ensure this runs only on the client-side
-      const params = new URLSearchParams(window.location.search);
-      const id = params.get("id");
-      if (id) {
-        setArticleId(id);
+    const id = searchParams.get("id");
+    if (id) {
+      setArticleId(id);
       fetchArticleDetails(id);
-      }
     }
-  }, []);
+  }, [searchParams]);
 
   const fetchArticleDetails = async (id) => {
     try {

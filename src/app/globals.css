@@ -12,6 +12,7 @@ html {
   scroll-behavior: smooth;
 }
 
+
 .ant-collapse {
   border: none;
   background-color: white;
@@ -78,7 +79,12 @@ html {
   border-radius: 5px;
   width: 210px;
 }
-
+.ant-layout {
+  background: white !important;
+  .ant-layout-content{
+    margin: 0 !important;
+  }
+}
 
 .react-datepicker__time-box {
   background-color: white;
@@ -87,8 +93,11 @@ html {
 body {
   font-family: 'Mona Sans', sans-serif;
   overflow-x: hidden;
-  max-width: 1440px;
+  /* max-width: 1440px; */
   background-color: white;
+  width:100%;
+
+  /* mar */
 }
 
 ::-webkit-scrollbar {

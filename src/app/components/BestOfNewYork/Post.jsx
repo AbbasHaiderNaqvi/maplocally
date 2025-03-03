@@ -2,7 +2,8 @@
 import React, { useState, useEffect } from "react";
 import Sidebar from "./Sidebar";
 import PostSection from "./PostSection";
-import { Layout, Skeleton } from "antd";
+import { Layout, Skeleton, Button } from "antd";
+import { FilterOutlined } from "@ant-design/icons";
 import styles from "./Post.module.css";
 
 const { Sider, Content } = Layout;
@@ -15,42 +16,66 @@ function Post() {
     priceRange: [0, 2000],
   });
 
-  const [loading, setLoading] = useState(true); // Manage loading state
+  const [loading, setLoading] = useState(true);
+  const [collapsed, setCollapsed] = useState(true);
+  const [isMobile, setIsMobile] = useState(false); // State to track mobile view
 
-  // Function to update filters
   const handleFiltersChange = (updatedFilters) => {
     setFilters(updatedFilters);
-    setLoading(true); // Show loader on filter change
+    setLoading(true);
   };
 
   useEffect(() => {
     const fetchData = async () => {
-      const MIN_DISPLAY_TIME = 2000; // Minimum time for loader (2 seconds)
+      const MIN_DISPLAY_TIME = 2000;
       const startTime = Date.now();
-
-      // Simulate fetching data delay (replace with your API logic)
       await new Promise((resolve) => setTimeout(resolve, 1500));
-
       const elapsedTime = Date.now() - startTime;
       const remainingTime = Math.max(0, MIN_DISPLAY_TIME - elapsedTime);
-
       setTimeout(() => setLoading(false), remainingTime);
     };
-
     fetchData();
   }, [filters]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    // Initial check on mount
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <Layout className={styles.mainSection}>
-      <Sider width={350} style={{ padding: "20px", background: "#fff" }}>
-        {/* Pass the current filters and update function to Sidebar */}
+      <Sider
+        width={350}
+        collapsedWidth="0"
+        collapsible
+        collapsed={isMobile && collapsed} // Collapse only on mobile
+        trigger={null}
+        style={{ background: "#fff", padding: "20px" }}
+        breakpoint="md"
+      >
         <Sidebar filters={filters} onFiltersChange={handleFiltersChange} />
       </Sider>
-      <Layout className={styles.mainSection} style={{ padding: "20px" }}>
+
+      <Layout className={styles.contentSection}>
+        {/* Toggle Sidebar for Mobile */}
+        {isMobile && (
+          <Button
+            className={styles.menuButton}
+            style={{background:'#007e9b',color:'white'}}
+            icon={<FilterOutlined />}
+            onClick={() => setCollapsed(!collapsed)}
+          />
+        )}
+
         <Content>
-          {/* Pass the filters to PostSection */}
-          <PostSection filters={filters} />
+          {loading ? <Skeleton active /> : <PostSection filters={filters} />}
         </Content>
       </Layout>
     </Layout>

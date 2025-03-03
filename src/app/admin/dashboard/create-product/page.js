@@ -13,7 +13,10 @@ const { Option } = Select;
 
 
 const Productform = () => {
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const [form] = Form.useForm();
+  const [productId, setProductId] = useState(null); // Product ID from the route params
   const [productImages, setProductImages] = useState([]);
   const [highlights, setHighlights] = useState([]);
   const [includes, setIncludes] = useState([]);
@@ -24,20 +27,6 @@ const Productform = () => {
   const [isFeatured, setIsFeatured] = useState(false);
 
   const API_KEY = "8e847b93a52f4c9ee3af71bb7f3462da";
-
-  const [productId, setProductId] = useState(null);
-const router = useRouter();
-
-useEffect(() => {
-  if (typeof window !== "undefined") {  // Ensure this runs only on the client-side
-    const params = new URLSearchParams(window.location.search);
-    const id = params.get("id");
-    if (id) {
-      setProductId(id);
-      fetchProductDetails(id);
-    }
-  }
-}, []);
 
   const handleImageUpload = async (file) => {
     if (productImages.length >= 5) {
@@ -66,13 +55,13 @@ useEffect(() => {
     setProductImages(updatedImages);
   };
 
-  // useEffect(() => {
-  //   const id = searchParams.get("id"); // Use `useSearchParams` to access query params in Next.js app directory
-  //   if (id) {
-  //     setProductId(id);
-  //     fetchProductDetails(id);
-  //   }
-  // }, [searchParams]);
+  useEffect(() => {
+    const id = searchParams.get("id"); // Use `useSearchParams` to access query params in Next.js app directory
+    if (id) {
+      setProductId(id);
+      fetchProductDetails(id);
+    }
+  }, [searchParams]);
 
   const fetchProductDetails = async (id) => {
     try {

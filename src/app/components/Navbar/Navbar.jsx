@@ -98,7 +98,7 @@ const Navbar = () => {
       </div>
       <div className={styles.center}>
         <ul className={styles.navLinks}>
-          <li>
+          {/* <li>
             <Dropdown overlay={languageMenu} trigger={['click']} dropdownStyle={{ backgroundColor: 'white' }}>
               <a onClick={(e) => e.preventDefault()}>
                 <Space>
@@ -107,18 +107,18 @@ const Navbar = () => {
                 </Space>
               </a>
             </Dropdown>
-          </li>
+          </li> */}
           <li>
             <Link href="/recently-viewed">{t('Recently viewed')}</Link>
           </li>
           <li>
           <Link href="/contact">{t('Contact')}</Link>
           </li>
-          <li>
+          {/* <li>
             <Link href="/admin/login">
               <Button className={styles.loginbtn}>{t('Login')}</Button>
             </Link>
-          </li>
+          </li> */}
         </ul>
       </div>
       <div className={styles.right}>

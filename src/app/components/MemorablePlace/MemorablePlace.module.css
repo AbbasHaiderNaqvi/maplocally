@@ -23,12 +23,21 @@
         0px -2px 4px rgba(0, 0, 0, 0.03); /* Subtle top shadow */
     border-radius: 20px;
     margin-right: 2%;
+    /* div{ */
+    /* } */
+}
+.blogImage{
+    margin: 2% !important;
+
 }
 
 .blogcontent {
-    margin-top: 2%;
+    /* margin-top: 2%;
     padding-left: 3%;
-    padding-right: 3%;
+    padding-right: 3%; */
+    /* margin: ; */
+    margin-left: 2% !important;
+
 }
 
 .blogheading {

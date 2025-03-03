@@ -7,7 +7,7 @@ import Feature from "./components/Featured/Feature";
 
 export default function Home() {
   return (
-    <div>
+    <div style={{margin:'auto'}}>
       <Hero />
       <Post />
       <Feature />
