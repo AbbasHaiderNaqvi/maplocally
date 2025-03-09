@@ -28,6 +28,7 @@ const SearchBar = () => {
   );
 };
 
+
 const Hero = () => {
   return (
     <div className={styles.main}>

@@ -58,7 +58,7 @@ const PostDetail = ({ searchParams }) => {
                         },
                         {
                             ...prevDetails[1],
-                            description: productData.tourLanguage || "French",
+                            description: productData.tourLanguage || "English",
                         },
                         {
                             ...prevDetails[2],

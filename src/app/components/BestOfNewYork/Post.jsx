@@ -50,35 +50,46 @@ function Post() {
   }, []);
 
   return (
-    <Layout className={styles.mainSection}>
-      <Sider
-        width={350}
-        collapsedWidth="0"
-        collapsible
-        collapsed={isMobile && collapsed} // Collapse only on mobile
-        trigger={null}
-        style={{ background: "#fff", padding: "20px" }}
-        breakpoint="md"
-      >
-        <Sidebar filters={filters} onFiltersChange={handleFiltersChange} />
-      </Sider>
+    <>
+      {loading ? (
+        <Skeleton active />
+      ) : (
+        <Layout className={styles.mainSection}>
+          <Sider
+            width={350}
+            collapsedWidth="0"
+            collapsible
+            collapsed={isMobile && collapsed} // Collapse only on mobile
+            trigger={null}
+            style={{ background: "#fff", padding: "20px" }}
+            breakpoint="md"
+          >
+            <Sidebar filters={filters} onFiltersChange={handleFiltersChange} />
+          </Sider>
 
-      <Layout className={styles.contentSection}>
-        {/* Toggle Sidebar for Mobile */}
-        {isMobile && (
-          <Button
-            className={styles.menuButton}
-            style={{background:'#007e9b',color:'white'}}
-            icon={<FilterOutlined />}
-            onClick={() => setCollapsed(!collapsed)}
-          />
-        )}
+          <Layout className={styles.contentSection}>
+            {/* Toggle Sidebar for Mobile */}
+            {isMobile && (
+              <Button
+                className={styles.menuButton}
+                style={{ background: "#007e9b", color: "white" }}
+                icon={<FilterOutlined />}
+                onClick={() => setCollapsed(!collapsed)}
+              />
+            )}
 
-        <Content>
-          {loading ? <Skeleton active /> : <PostSection filters={filters} />}
-        </Content>
-      </Layout>
-    </Layout>
+            <Content>
+              <PostSection filters={filters} />
+              {/* {loading ? (
+                <Skeleton active />
+              ) : (
+                <PostSection filters={filters} />
+              )} */}
+            </Content>
+          </Layout>
+        </Layout>
+      )}
+    </>
   );
 }
 

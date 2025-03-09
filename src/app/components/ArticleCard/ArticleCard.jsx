@@ -1,15 +1,22 @@
+"use client"
 import React from 'react';
+import { useRouter } from 'next/navigation';
 import { Row, Col } from 'antd';
 import Image from 'next/image';
 import styles from './ArticleCard.module.css';
 
 const ArticleCard = ({ articles }) => {
+  const router = useRouter();
+
+  const handleReadMore = (id) => {
+    router.push(`/article/${id}`);
+  };
   return (
     <div className={styles.cardContainer}>
     <Row gutter={24} >
       {articles.map((article, index) => (
         <Col xs={24} sm={12} md={8} key={index}>
-          <div className={styles.customCard}>
+          <div className={styles.customCard}  onClick={() => handleReadMore(article.id)}>
             <div className={styles.coverImageContainer}>
               <Image
                 src={article.coverImage}

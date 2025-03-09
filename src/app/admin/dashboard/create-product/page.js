@@ -109,10 +109,7 @@ useEffect(() => {
   };
 
   const handleSubmit = async (values) => {
-    if (productImages.length < 5) {
-      message.error("You must upload exactly 5 images.");
-      return;
-    }
+
     try {
       if (productId) {
         // Update product

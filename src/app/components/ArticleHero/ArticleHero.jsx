@@ -47,7 +47,7 @@ const ArticleHero = () => {
               lg={12}
 
             >
-              <SearchBar />
+              {/* <SearchBar /> */}
             </Col>
           </Row>
           <Row justify="center" align="middle">
@@ -59,6 +59,7 @@ const ArticleHero = () => {
 
             >
               <h1 className={styles.heading}>
+                Top Places to vist
                 <ul className={styles.hashtagList}>
                   <li>#Trending News</li>
                   <li>#Social media</li>
@@ -66,8 +67,6 @@ const ArticleHero = () => {
                   <li>#Manusipi</li>
                 </ul>
               </h1>
-
-
             </Col>
           </Row>
         </div>

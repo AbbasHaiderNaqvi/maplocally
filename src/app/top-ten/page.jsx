@@ -19,7 +19,7 @@ const Articles = () => {
                         "Content-Type": "application/json",
                     },
                 });
-                const filteredArticles = response.data.data.filter(article => article.places && article.places.length == 0);
+                const filteredArticles = response.data.data.filter(article => article.places && article.places.length > 0);
                 const formattedArticles = filteredArticles.map(article => ({
                     title: article.title,
                     id: article._id,
@@ -43,10 +43,8 @@ const Articles = () => {
     }, []);
 
     return (
-        <div style={{
-            marginTop:'10rem'
-        }}>
-            {/* <ArticleHero /> */}
+        <div>
+            <ArticleHero />
             {loading && (
                 <div style={{ margin: '20px 0' }}>
                     <Skeleton active avatar paragraph={{ rows: 4 }} />

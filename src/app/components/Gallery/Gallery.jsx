@@ -71,18 +71,16 @@ const Gallery = ({ id }) => {
       </div>
 
       <div className={styles.sliderWrapper}>
-        <Carousel className={styles.carousel} dots={false}>
+        <Carousel dots autoplay arrows>
           {data?.productImages?.length > 0 ? (
             data.productImages.map((img, index) => (
               <div key={index}>
-                <Image
-                  src={img} // Use the direct image URL
-                  alt={`Image ${index + 1}`}
-                  layout="intrinsic"
-                  width={1200}
-                  height={800}
-                  className={styles.image}
-                />
+                <img
+                src={img}
+                className={styles.sliderImage}
+                alt="Article Image"
+              />
+             
               </div>
             ))
           ) : (
@@ -91,7 +89,7 @@ const Gallery = ({ id }) => {
         </Carousel>
       </div>
 
-      <Row className={styles.imageGrid} gutter={[16, 16]}>
+      {/* <Row className={styles.imageGrid} gutter={[16, 16]}>
         {data?.productImages?.length > 0 ? (
           data.productImages.map((img, index) => (
             <Col key={index} className={styles.customCol} xs={24} md={8}>
@@ -109,7 +107,7 @@ const Gallery = ({ id }) => {
         ) : (
           <p>No images available</p>
         )}
-      </Row>
+      </Row> */}
     </div>
   );
 };

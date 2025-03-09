@@ -46,11 +46,16 @@ import axios from "axios";
 //     },
 //   ];
   const MemorablePlace = () => {
+    
   const [places, setPlaces] = useState([]);
 
-    const router=useRouter()
+    const router = useRouter();
+
+    const handleReadMore = (id) => {
+      router.push(`/article/${id}`);
+    };
     const handleseemore=()=>{
-      router.push('/Articles')
+      router.push('/articles')
     }
     const handleplace=()=>{
       router.push('/Article2')
@@ -97,7 +102,7 @@ import axios from "axios";
       </Row>
       <Row gutter={[16, 16]}>
         {places.map((place) => (
-          <Col key={place.id} xs={24} sm={24} md={24} lg={12} xl={12} onClick={handleplace}>
+          <Col key={place.id} xs={24} sm={24} md={24} lg={12} xl={12} style={{cursor:'pointer'}} onClick={() => handleReadMore(place._id)}>
             <div className={styles.blog}>
               <Image
                 src={place.articleImage}
@@ -111,7 +116,7 @@ import axios from "axios";
                 <h2 className={styles.blogheading}>{place.title}</h2>
                 <p className={styles.blogparagraph}>{place.shortDescription}</p>
                 <div className={styles.bloglink}>
-                  <h3 className={styles.bloglinkheading}>
+                  <h3 className={styles.bloglinkheading} >
                     Explore <RightOutlined />
                   </h3>
                 </div>

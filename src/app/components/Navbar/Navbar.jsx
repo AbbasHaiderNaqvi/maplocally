@@ -109,7 +109,10 @@ const Navbar = () => {
             </Dropdown>
           </li> */}
           <li>
-            <Link href="/recently-viewed">{t('Recently viewed')}</Link>
+            <Link href="/top-ten">{t('Top Places')}</Link>
+          </li>
+          <li>
+            <Link href="/recently-viewed">{t('Most Viewed')}</Link>
           </li>
           <li>
           <Link href="/contact">{t('Contact')}</Link>
@@ -140,7 +143,7 @@ const Navbar = () => {
         </div>
         <div className={styles.drawerMain}>
           <ul className={styles.unorderedList}>
-            <li>
+            {/* <li>
               <Dropdown overlay={languageMenu} trigger={['click']} dropdownStyle={{ backgroundColor: 'white' }}>
                 <a onClick={(e) => e.preventDefault()}>
                   <Space>
@@ -149,21 +152,24 @@ const Navbar = () => {
                   </Space>
                 </a>
               </Dropdown>
+            </li> */}
+            <li onClick={() => setDrawerVisible(false)}>
+            <Link href="/top-ten">{t('Top Places')}</Link>
             </li>
-            <li>
+            <li onClick={() => setDrawerVisible(false)}>
+              <Link href="/recently-viewed">{t('Most Viewed')}</Link>
+            </li>
+            <li onClick={() => setDrawerVisible(false)}>
               <Link href="/contact">{t('Contact')}</Link>
             </li>
-            <li>
-              <Link href="/recently-viewed">{t('Recently viewed')}</Link>
-            </li>
-            <li>
+            {/* <li>
               <Link href="/signup">{t('Signup')}</Link>
-            </li>
-            <li>
+            </li> */}
+            {/* <li>
               <Link href="/login">
                 <Button className={styles.loginbtn}>{t('Login')}</Button>
               </Link>
-            </li>
+            </li> */}
           </ul>
         </div>
       </Drawer>
