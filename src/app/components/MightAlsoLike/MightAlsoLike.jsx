@@ -26,7 +26,7 @@ function MightAlsoLike() {
         setLoading(true);
         setError("");
         const response = await axios.get(
-          `https://maplocally-be.vercel.app/api/product-tag-filter/${id}`
+          `http://localhost:3002/api/product-tag-filter/${id}`
         );
         const data = Array.isArray(response.data.data)
           ? response.data.data

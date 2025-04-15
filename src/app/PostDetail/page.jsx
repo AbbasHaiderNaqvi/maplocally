@@ -46,7 +46,7 @@ const PostDetail = ({ searchParams }) => {
 
         const fetchProduct = async () => {
             try {
-                const response = await axios.get(`https://maplocally-be.vercel.app/api/get-product/${id}`);
+                const response = await axios.get(`http://localhost:3002/api/get-product/${id}`);
                 if (response.data.success) {
                     const productData = response.data.data;
                     setFetchedProduct(productData);
@@ -88,7 +88,7 @@ const PostDetail = ({ searchParams }) => {
 
     return (
         <div>
-            <Gallery id={fetchedProduct?._id || ""} loading={loading} />
+            <Gallery mapeLink={fetchedProduct?.mapeLink} id={fetchedProduct?._id || ""} loading={loading} />
             <Aboutplace
                 title="Brief about the place"
                 sections={fetchedProduct?.briefDescription ? [fetchedProduct.briefDescription] : []}

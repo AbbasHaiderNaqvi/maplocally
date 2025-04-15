@@ -37,7 +37,7 @@ const ArticleForm = () => {
 
   const fetchArticleDetails = async (id) => {
     try {
-      const response = await axios.get(`https://maplocally-be.vercel.app/api/get-article/${id}`);
+      const response = await axios.get(`http://localhost:3002/api/get-article/${id}`);
       const article = response.data.data;
       form.setFieldsValue({
         title: article.title,
@@ -150,10 +150,10 @@ const ArticleForm = () => {
       };
 
       if (articleId) {
-        await axios.put(`https://maplocally-be.vercel.app/api/update-article/${articleId}`, payload);
+        await axios.put(`http://localhost:3002/api/update-article/${articleId}`, payload);
         message.success("Article updated successfully!");
       } else {
-        await axios.post(`https://maplocally-be.vercel.app/api/create-article`, payload);
+        await axios.post(`http://localhost:3002/api/create-article`, payload);
         message.success("Article created successfully!");
       }
 

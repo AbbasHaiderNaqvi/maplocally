@@ -1,16 +1,24 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import {UploadOutlined} from '@ant-design/icons'
+import { UploadOutlined } from "@ant-design/icons";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Form, Input, Button, message, Select, Space,Switch,Upload } from "antd";
+import {
+  Form,
+  Input,
+  Button,
+  message,
+  Select,
+  Space,
+  Switch,
+  Upload,
+} from "antd";
 import axios from "axios";
 import dayjs from "dayjs";
-import styles from "./product.module.css"
+import styles from "./product.module.css";
 import Sidebar from "../../Sidebar/Sidebar";
 
 const { TextArea } = Input;
 const { Option } = Select;
-
 
 const Productform = () => {
   const [form] = Form.useForm();
@@ -18,6 +26,7 @@ const Productform = () => {
   const [highlights, setHighlights] = useState([]);
   const [includes, setIncludes] = useState([]);
   const [latitude, setLatitude] = useState("");
+  const [mapeLink, setMapeLink] = useState("");
   const [longitude, setLongitude] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [tourDate, setTourDate] = useState(null);
@@ -26,18 +35,19 @@ const Productform = () => {
   const API_KEY = "8e847b93a52f4c9ee3af71bb7f3462da";
 
   const [productId, setProductId] = useState(null);
-const router = useRouter();
+  const router = useRouter();
 
-useEffect(() => {
-  if (typeof window !== "undefined") {  // Ensure this runs only on the client-side
-    const params = new URLSearchParams(window.location.search);
-    const id = params.get("id");
-    if (id) {
-      setProductId(id);
-      fetchProductDetails(id);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      // Ensure this runs only on the client-side
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get("id");
+      if (id) {
+        setProductId(id);
+        fetchProductDetails(id);
+      }
     }
-  }
-}, []);
+  }, []);
 
   const handleImageUpload = async (file) => {
     if (productImages.length >= 5) {
@@ -76,7 +86,9 @@ useEffect(() => {
 
   const fetchProductDetails = async (id) => {
     try {
-      const response = await axios.get(`https://maplocally-be.vercel.app/api/get-product/${id}`);
+      const response = await axios.get(
+        `http://localhost:3002/api/get-product/${id}`
+      );
       const product = response.data.data;
 
       form.setFieldsValue({
@@ -91,6 +103,7 @@ useEffect(() => {
         groupSize: product.groupSize || "",
         fullDescription: product.fullDescription || "",
         meetingPoint: product.meetingPoint || "",
+        mapeLink: product?.mapeLink || "",
       });
 
       setProductImages(product.productImages || []);
@@ -98,6 +111,8 @@ useEffect(() => {
       setIncludes(product.includes || []);
       setSelectedCategory(product.category || "");
       setLatitude(product.latitude || "");
+      setMapeLink(product.mapeLink || "");
+
       setLongitude(product.longitude || "");
       setTourDate(product.tourDate ? dayjs(product.tourDate) : null);
 
@@ -109,58 +124,63 @@ useEffect(() => {
   };
 
   const handleSubmit = async (values) => {
-
     try {
       if (productId) {
         // Update product
-        await axios.put(`https://maplocally-be.vercel.app/api/update-product/${productId}`, {
-          title: values.title,
-        subTitle: values.subTitle,
-        tags: values.tags || [],
-        briefDescription: values.briefDescription,
-        fullDescription: values.fullDescription,
-        price: values.price,
-        highlights,
-        includes,
-        latitude,
-        longitude,
-        category: selectedCategory,
-        tourDate: tourDate ? dayjs(tourDate).format("YYYY-MM-DD") : null,
-        productImages,
-        tourDuration: values.tourDuration,
-        tourLanguage: values.tourLanguage,
-        pickupOption: values.pickupOption,
-        groupSize: values.groupSize,
-        meetingPoint: values.meetingPoint,
-        });
+        await axios.put(
+          `http://localhost:3002/api/update-product/${productId}`,
+          {
+            title: values.title,
+            subTitle: values.subTitle,
+            tags: values.tags || [],
+            briefDescription: values.briefDescription,
+            fullDescription: values.fullDescription,
+            price: values.price,
+            highlights,
+            mapeLink,
+            // includes,
+            // latitude,
+            mapeLink,
+            longitude,
+            category: selectedCategory,
+            tourDate: tourDate ? dayjs(tourDate).format("YYYY-MM-DD") : null,
+            productImages,
+            tourDuration: values.tourDuration,
+            tourLanguage: values.tourLanguage,
+            pickupOption: values.pickupOption,
+            groupSize: values.groupSize,
+            meetingPoint: values.meetingPoint,
+          }
+        );
         message.success("Product updated successfully!");
-        router.push("/admin/dashboard/product-list"); 
+        router.push("/admin/dashboard/product-list");
       } else {
         const apiUrl = isFeatured
-        ? `https://maplocally-be.vercel.app/api/create-featured-product`
-        : `https://maplocally-be.vercel.app/api/create-product`;        
-        await axios.post( apiUrl, {
+          ? `http://localhost:3002/api/create-featured-product`
+          : `http://localhost:3002/api/create-product`;
+        await axios.post(apiUrl, {
           title: values.title,
-        subTitle: values.subTitle,
-        tags: values.tags || [],
-        briefDescription: values.briefDescription,
-        fullDescription: values.fullDescription,
-        price: values.price,
-        highlights,
-        includes,
-        latitude,
-        longitude,
-        category: selectedCategory,
-        tourDate: tourDate ? dayjs(tourDate).format("YYYY-MM-DD") : null,
-        productImages,
-        tourDuration: values.tourDuration,
-        tourLanguage: values.tourLanguage,
-        pickupOption: values.pickupOption,
-        groupSize: values.groupSize,
-        meetingPoint: values.meetingPoint,
+          subTitle: values.subTitle,
+          tags: values.tags || [],
+          briefDescription: values.briefDescription,
+          fullDescription: values.fullDescription,
+          price: values.price,
+          highlights,
+          includes,
+          // latitude,
+          // longitude,
+          mapeLink,
+          category: selectedCategory,
+          tourDate: tourDate ? dayjs(tourDate).format("YYYY-MM-DD") : null,
+          productImages,
+          tourDuration: values.tourDuration,
+          tourLanguage: values.tourLanguage,
+          pickupOption: values.pickupOption,
+          groupSize: values.groupSize,
+          meetingPoint: values.meetingPoint,
         });
         message.success("Product created successfully!");
-        router.push("/admin/dashboard/product-list"); 
+        router.push("/admin/dashboard/product-list");
       }
     } catch (error) {
       console.error("Error submitting form:", error);
@@ -171,191 +191,262 @@ useEffect(() => {
   return (
     <div>
       <Sidebar />
-      <h1 className={styles.title}>{productId ? "Edit Product" : "Create Product"}</h1>
-      <Form form={form} onFinish={handleSubmit} layout="vertical" className={styles.mainContent}>
+      <h1 className={styles.title}>
+        {productId ? "Edit Product" : "Create Product"}
+      </h1>
+      <Form
+        form={form}
+        onFinish={handleSubmit}
+        layout="vertical"
+        className={styles.mainContent}
+      >
         {/* Basic Information */}
-        <Form.Item label="Title" name="title" rules={[{ required: true, message: "Please enter the title" }]}>
-          <Input placeholder="Enter product title" className={styles.input}/>
+        <Form.Item
+          label="Title"
+          name="title"
+          rules={[{ required: true, message: "Please enter the Title" }]}
+        >
+          <Input placeholder="Enter product title" className={styles.input} />
         </Form.Item>
-        <Form.Item label="Subtitle" name="subTitle">
-          <Input className={styles.input} placeholder="Enter product subtitle" />
+        <Form.Item label="Subtitle" name="subTitle"
+          rules={[{ required: true, message: "Please enter the Subtitle" }]}
+          >
+          <Input
+            className={styles.input}
+            placeholder="Enter product subtitle"
+          />
         </Form.Item>
         <Form.Item name="tags" label="Tags (Max 3)">
-            <Select mode="tags" maxTagCount={3} placeholder="Enter up to 3 tags" />
-          </Form.Item>
-          <Form.Item label="Brief Description" name="briefDescription">
-            <TextArea rows={4} placeholder="Enter brief description" className={styles.textarea} />
-          </Form.Item>
-
-          <Form.Item label="Full Description" name="fullDescription">
-            <TextArea rows={6} placeholder="Enter full description" className={styles.textarea} />
-          </Form.Item>
-          <Form.Item
-            label="Price"
-            name="price"
-            rules={[{ required: true, message: "Please enter the price" }]}
+          <Select
+            mode="tags"
+            maxTagCount={3}
+            placeholder="Enter up to 3 tags"
+          />
+        </Form.Item>
+        <Form.Item label="Brief Description" name="briefDescription"
+          rules={[{ required: true, message: "Please enter the Brief Description" }]}
           >
-            <Input type="number" placeholder="Enter price" className={styles.input} />
-          </Form.Item>
+          <TextArea
+            rows={4}
+            placeholder="Enter brief description"
+            className={styles.textarea}
+          />
+        </Form.Item>
 
-          <Form.Item label="Highlights" required>
-            <Space direction="vertical">
-              <Input
-                placeholder="Add highlight"
-                onPressEnter={(e) => {
-                  if (e.target.value.trim() !== "") {
-                    setHighlights([...highlights, e.target.value.trim()]);
-                    e.target.value = "";
-                  }
-                }}
-              />
-              <Button onClick={() => setHighlights([])}>Clear</Button>
-              <ul>
-                {highlights.map((item, index) => (
-                  <li key={index}>{item}</li>
-                ))}
-              </ul>
-            </Space>
-          </Form.Item>
+        <Form.Item label="Full Description" name="fullDescription"
+          rules={[{ required: true, message: "Please enter the Full Description" }]}
+          >
+          <TextArea
+            rows={6}
+            placeholder="Enter full description"
+            className={styles.textarea}
+          />
+        </Form.Item>
+        <Form.Item
+          label="Price"
+          name="price"
+          // rules={[{ required: true, message: "Please enter the price" }]}
+        >
+          <Input
+            type="number"
+            placeholder="Enter price"
+            className={styles.input}
+          />
+        </Form.Item>
 
-          <Form.Item label="Includes" required>
-            <Space direction="vertical">
-              <Input
-                placeholder="Add include"
-                onPressEnter={(e) => {
-                  if (e.target.value.trim() !== "") {
-                    setIncludes([...includes, e.target.value.trim()]);
-                    e.target.value = "";
-                  }
-                }}
-              />
-              <Button onClick={() => setIncludes([])}>Clear</Button>
-              <ul>
-                {includes.map((item, index) => (
-                  <li key={index}>{item}</li>
-                ))}
-              </ul>
-            </Space>
-          </Form.Item>
-
-          <Form.Item label="Tour Duration" name="tourDuration" rules={[{ required: true }]}>
-            <Select placeholder="Select duration">
-              {Array.from({ length: 24 }, (_, i) => (
-                <Option key={i + 1} value={`${i + 1} hours`}>
-                  {i + 1} hours
-                </Option>
+        <Form.Item label="Highlights" >
+          <Space direction="vertical">
+            <Input
+              placeholder="Add highlight"
+              onPressEnter={(e) => {
+                if (e.target.value.trim() !== "") {
+                  setHighlights([...highlights, e.target.value.trim()]);
+                  e.target.value = "";
+                }
+              }}
+            />
+            <Button onClick={() => setHighlights([])}>Clear</Button>
+            <ul>
+              {highlights.map((item, index) => (
+                <li key={index}>{item}</li>
               ))}
-            </Select>
-          </Form.Item>
+            </ul>
+          </Space>
+        </Form.Item>
+
+        <Form.Item label="Includes">
+          <Space direction="vertical">
+            <Input
+              placeholder="Add include"
+              onPressEnter={(e) => {
+                if (e.target.value.trim() !== "") {
+                  setIncludes([...includes, e.target.value.trim()]);
+                  e.target.value = "";
+                }
+              }}
+            />
+            <Button onClick={() => setIncludes([])}>Clear</Button>
+            <ul>
+              {includes.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          </Space>
+        </Form.Item>
+
+        <Form.Item
+          label="Tour Duration"
+          name="tourDuration"
+          // rules={[{ required: true }]}
+        >
+          <Select placeholder="Select duration">
+            {Array.from({ length: 24 }, (_, i) => (
+              <Option key={i + 1} value={`${i + 1} hours`}>
+                {i + 1} hours
+              </Option>
+            ))}
+          </Select>
+        </Form.Item>
         <Form.Item label="Tour Language" name="tourLanguage">
-          <Input placeholder="Enter tour language" className={styles.input}/>
+          <Input placeholder="Enter tour language" className={styles.input} />
         </Form.Item>
         <Form.Item label="Pickup Option" name="pickupOption">
-          <Input placeholder="Enter pickup option" className={styles.input}/>
+          <Input placeholder="Enter pickup option" className={styles.input} />
         </Form.Item>
-        <Form.Item label="Group Size" name="groupSize" rules={[{ required: true }]}>
-            <Select placeholder="Select group size">
-              {Array.from({ length: 10 }, (_, i) => (
-                <Option key={(i + 1) * 5} value={(i + 1) * 5}>
-                  {(i + 1) * 5}
-                </Option>
-              ))}
-            </Select>
-          </Form.Item>
-          <Form.Item
-            label="Meeting Point"
-            name="meetingPoint"
-            rules={[{ required: true, message: "Please enter the meeting point" }]}
-          >
-            <Input placeholder="Enter meeting point" className={styles.input} />
-          </Form.Item>
-        
-          <Form.Item label="Latitude">
-            <Input
-              placeholder="Enter latitude"
-              value={latitude}
-              onChange={(e) => setLatitude(e.target.value)}
-              className={styles.input}
-            />
-          </Form.Item>
+        <Form.Item
+          label="Group Size"
+          name="groupSize"
+          // rules={[{ required: true }]}
+        >
+          <Select placeholder="Select group size">
+            {Array.from({ length: 10 }, (_, i) => (
+              <Option key={(i + 1) * 5} value={(i + 1) * 5}>
+                {(i + 1) * 5}
+              </Option>
+            ))}
+          </Select>
+        </Form.Item>
+        <Form.Item
+          label="Meeting Point"
+          name="meetingPoint"
+          rules={[
+          ]}
+        >
+          <Input placeholder="Enter meeting point" className={styles.input} />
+        </Form.Item>
 
-          <Form.Item label="Longitude">
+        <Form.Item
+          label="Google Map Link"
+          name="mapeLink"
+          rules={[
+            {
+              message: "Please enter a Google Maps URL",
+            },
+            {
+              validator: (_, value) =>
+                value && (!value.includes("google"))
+                  ? Promise.reject("URL must be a Google Maps link")
+                  : Promise.resolve(),
+            },
+          ]}
+        >
+          <Input
+            placeholder="Enter Google Maps link"
+            value={mapeLink}
+            onChange={(e) => setMapeLink(e.target.value)}
+            className={styles.input}
+          />
+        </Form.Item>
+
+        {/* <Form.Item label="Longitude">
             <Input
               placeholder="Enter longitude"
               value={longitude}
               onChange={(e) => setLongitude(e.target.value)}
               className={styles.input}
             />
-          </Form.Item>
+          </Form.Item> */}
 
-          <Form.Item label="Category">
-            <Select
-              value={selectedCategory}
-              onChange={(value) => setSelectedCategory(value)}
-              placeholder="Select category"
-              className={styles.select}
-            >
-              <Option value="neighborhoods">Neighborhoods</Option>
-              <Option value="broadway">Broadway Shows</Option>
-              <Option value="museum">Museums</Option>
-              <Option value="restaurants">Restaurants</Option>
-              <Option value="bars">Bars</Option>
-              <Option value="music">Music</Option>
-              <Option value="tourist_routes">Tourist Routes</Option>
-            </Select>
-          </Form.Item>
+<Form.Item label="Category">
+  <Select
+    value={selectedCategory}
+    onChange={(value) => setSelectedCategory(value)}
+    placeholder="Select category"
+    className={styles.select}
+  >
+    <Option value="guide">Your Local Guide</Option>
+    <Option value="neighborhoods">Neighborhoods</Option>
+    <Option value="restaurants_bars">Restaurants + Bars</Option>
+    <Option value="entertainment">Entertainment</Option> {/* was Broadway Shows */}
+    <Option value="events">Events</Option>
+    <Option value="music">Music</Option>
+    <Option value="sites_museums">Sites + Museums</Option> {/* was Museums */}
+  </Select>
+</Form.Item>
 
-          <Form.Item label="Tour Date">
+
+        <Form.Item label="Tour Date">
           <Input
             type="date"
             value={tourDate ? tourDate.format("YYYY-MM-DD") : ""}
             onChange={(e) => setTourDate(dayjs(e.target.value))}
           />
         </Form.Item>
-          <Form.Item
-            label="Image Upload"
-            rules={[{ required: true, message: "Please upload at least one image" }]}
+        <Form.Item
+          label="Image Upload"
+          rules={[
+            { required: true, message: "Please upload at least one image" },
+          ]}
+        >
+          <Upload
+            customRequest={({ file }) => handleImageUpload(file)}
+            listType="picture"
+            showUploadList={false}
           >
-            <Upload
-              customRequest={({ file }) => handleImageUpload(file)}
-              listType="picture"
-              showUploadList={false}
-            >
-              <Button icon={<UploadOutlined />} className={styles.uploadButton}>
-                Upload Image
-              </Button>
-            </Upload>
-            <div className={styles.imagePreview}>
-              {productImages.map((url, index) => (
-                <div key={index} className={styles.imageContainer}>
-                  <img src={url} alt={`Uploaded ${index}`} className={styles.image} />
-                  <Button
-                    danger
-                    onClick={() => handleRemoveImage(index)}
-                    className={styles.removeButton}
-                  >
-                    Remove
-                  </Button>
-                </div>
-              ))}
-            </div>
-          </Form.Item>
+            <Button icon={<UploadOutlined />} className={styles.uploadButton}>
+              Upload Image
+            </Button>
+          </Upload>
+          <div className={styles.imagePreview}>
+            {productImages.map((url, index) => (
+              <div key={index} className={styles.imageContainer}>
+                <img
+                  src={url}
+                  alt={`Uploaded ${index}`}
+                  className={styles.image}
+                />
+                <Button
+                  danger
+                  onClick={() => handleRemoveImage(index)}
+                  className={styles.removeButton}
+                >
+                  Remove
+                </Button>
+              </div>
+            ))}
+          </div>
+        </Form.Item>
 
-          <Form.Item label="Feature Product">
-            <Switch
-              checked={isFeatured}
-              onChange={(checked) => setIsFeatured(checked)}
-              checkedChildren="Yes"
-              unCheckedChildren="No"
-              className={styles.switch}
-            />
-          </Form.Item>
+        <Form.Item label="Feature Product">
+          <Switch
+            checked={isFeatured}
+            onChange={(checked) => setIsFeatured(checked)}
+            checkedChildren="Yes"
+            unCheckedChildren="No"
+            className={styles.switch}
+          />
+        </Form.Item>
 
-        <Button type="primary" htmlType="submit" className={styles.submitButton}>
+        <Button
+          type="primary"
+          htmlType="submit"
+          className={styles.submitButton}
+        >
           {productId ? "Update Product" : "Create Product"}
         </Button>
       </Form>
-    </div>);
+    </div>
+  );
 };
 
 export default Productform;

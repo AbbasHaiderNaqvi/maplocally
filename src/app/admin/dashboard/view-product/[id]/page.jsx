@@ -12,7 +12,7 @@ const ViewProduct = ({ params }) => {
     if (id) {
       const fetchProduct = async () => {
         try {
-          const response = await axios.get(`https://maplocally-be.vercel.app/api/get-product/${id}`);
+          const response = await axios.get(`http://localhost:3002/api/get-product/${id}`);
           console.log(response.data); // Log product details
           setProduct(response.data.data);
         } catch (error) {

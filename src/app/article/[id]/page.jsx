@@ -13,7 +13,7 @@ const ViewArticle = ({ params }) => {
     if (id) {
       const fetchArticle = async () => {
         try {
-          const response = await axios.get(`https://maplocally-be.vercel.app/api/get-article/${id}`);
+          const response = await axios.get(`http://localhost:3002/api/get-article/${id}`);
           setArticle(response.data.data);
         } catch (error) {
           console.error("Error fetching article details:", error);
@@ -70,7 +70,7 @@ const ViewArticle = ({ params }) => {
       {Array.isArray(article.places) && article.places.length > 0 && (
         <div className={styles.placesSection}>
             <div className={styles.mainHeading}>
-            <h2>Top Places</h2>
+            <h2>Top Recommendations</h2>
             </div>
           <div className={styles.placesGrid}>
             {article.places.map((place, index) => (

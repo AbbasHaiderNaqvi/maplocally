@@ -1,4 +1,4 @@
-import { Skeleton, Tag } from "antd";
+import { Skeleton, Tag, Avatar } from "antd";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "./products.module.css";
@@ -14,7 +14,6 @@ const PostRow = ({ posts, loading }) => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Render skeletons while loading
   if (loading) {
     return (
       <div className={styles.gridContainer}>
@@ -30,27 +29,43 @@ const PostRow = ({ posts, loading }) => {
 
   return (
     <div className={styles.gridContainer}>
-      {posts.map((post) => (
-        <div
-          key={post._id}
-          className={styles.customCard}
-          onClick={() => router.push(`/PostDetail?id=${post._id}`)}
-        >
-          <img src={post.productImages[0]} alt={post.title} className={styles.cardImage} />
-          <div className={styles.cardContent}>
-            <p className={styles.cardDescription}>{post.subTitle}</p>
-            <h3 className={styles.cardTitle}>{post.title}</h3>
-            <div className={styles.tagContainer}>
-              {post.tags.map((tag, index) => (
-                <Tag key={index} className={styles.tag}>
-                  {tag}
-                </Tag>
-              ))}
+      {posts.map((post) => {
+        const hasImage = post.productImages && post.productImages.length > 0;
+        const titleFirstLetter = post.title ? post.title.charAt(0).toUpperCase() : "?";
+
+        return (
+          <div
+            key={post._id}
+            className={styles.customCard}
+            onClick={() => router.push(`/PostDetail?id=${post._id}`)}
+          >
+            {hasImage ? (
+              <img src={post.productImages[0]} alt={post.title} className={styles.cardImage} />
+            ) : (
+              <div className={styles.cardAvatar}>
+                <Avatar
+                  size="large"
+                  className={styles.avatarLetter}
+                >
+                  {titleFirstLetter}
+                </Avatar>
+              </div>
+            )}
+            <div className={styles.cardContent}>
+              <p className={styles.cardDescription}>{post.subTitle}</p>
+              <h3 className={styles.cardTitle}>{post.title}</h3>
+              <div className={styles.tagContainer}>
+                {post.tags.map((tag, index) => (
+                  <Tag key={index} className={styles.tag}>
+                    {tag}
+                  </Tag>
+                ))}
+              </div>
+              <p className={styles.price}>From US$ {post.price}</p>
             </div>
-            <p className={styles.price}>From US$ {post.price}</p>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 };

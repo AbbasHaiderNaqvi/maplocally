@@ -27,9 +27,9 @@ export default function Home() {
         <Feature />
       </motion.div>
 
-      <motion.div initial="hidden" animate="visible" variants={sectionVariants}>
+      {/* <motion.div initial="hidden" animate="visible" variants={sectionVariants}>
         <MemorablePlace />
-      </motion.div>
+      </motion.div> */}
 
       <motion.div initial="hidden" animate="visible" variants={sectionVariants}>
         <Feedback />

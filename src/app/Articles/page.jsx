@@ -14,7 +14,7 @@ const Articles = () => {
     useEffect(() => {
         const fetchArticles = async () => {
             try {
-                const response = await axios.get("https://maplocally-be.vercel.app/api/get-articles", {
+                const response = await axios.get("http://localhost:3002/api/get-articles", {
                     headers: {
                         "Content-Type": "application/json",
                     },

@@ -28,7 +28,7 @@ const Footer = () => {
               <li>Advertise with us</li>
               <li>List your event</li>
               <li>Privacy Policy</li>
-              <li>Contact</li>
+              <li>Contact Us</li>
             </ul>
           </div>
         </Col>

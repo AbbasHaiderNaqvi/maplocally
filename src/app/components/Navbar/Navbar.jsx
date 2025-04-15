@@ -115,7 +115,7 @@ const Navbar = () => {
             <Link href="/recently-viewed">{t('Most Viewed')}</Link>
           </li>
           <li>
-          <Link href="/contact">{t('Contact')}</Link>
+          <Link href="/contact">{t('Contact Us')}</Link>
           </li>
           {/* <li>
             <Link href="/admin/login">
@@ -160,7 +160,7 @@ const Navbar = () => {
               <Link href="/recently-viewed">{t('Most Viewed')}</Link>
             </li>
             <li onClick={() => setDrawerVisible(false)}>
-              <Link href="/contact">{t('Contact')}</Link>
+              <Link href="/contact">{t('Contact Us')}</Link>
             </li>
             {/* <li>
               <Link href="/signup">{t('Signup')}</Link>

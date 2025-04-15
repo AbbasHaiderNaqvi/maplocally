@@ -36,7 +36,7 @@ const testimonials = [
 const Feedback = () => {
   return (
     <div className={styles.testimonialssection} id='feedback'>
-      <h2>
+      {/* <h2>
         Why People <span className={styles.highlight}>Love</span> New York
       </h2>
       <Row gutter={[16, 16]} className={styles.testimonialscontainer} wrap={false}>
@@ -62,7 +62,7 @@ const Feedback = () => {
             </div>
           </Col>
         ))}
-      </Row>
+      </Row> */}
     </div>
   );
 };

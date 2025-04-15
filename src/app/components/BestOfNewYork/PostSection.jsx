@@ -16,7 +16,7 @@ const PostSection = ({ filters }) => {
       const startTime = Date.now(); // Record start time
 
       try {
-        const response = await axios.get("https://maplocally-be.vercel.app/api/product-filter", {
+        const response = await axios.get("http://localhost:3002/api/product-filter", {
           params: {
             category: filters.category.join(","),
             minPrice: filters.priceRange[0],

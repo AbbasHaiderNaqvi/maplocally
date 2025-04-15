@@ -31,16 +31,16 @@ const Sidebar = ({ filters, onFiltersChange }) => {
   const handlePriceChange = (value) => {
     onFiltersChange({ ...filters, priceRange: value });
   };
-
   const options = [
+    { value: "guide", label: "Your Local Guide" },
     { value: "neighborhoods", label: "Neighborhoods" },
-    { value: "broadway", label: "Broadway Shows" },
-    { value: "museum", label: "Museums" },
-    { value: "restaurants", label: "Restaurants" },
-    { value: "bars", label: "Bars" },
+    { value: "restaurants_bars", label: "Restaurants + Bars" },
+    { value: "entertainment", label: "Entertainment" }, // was "Broadway Shows"
+    { value: "events", label: "Events" },
     { value: "music", label: "Music" },
-    { value: "tourist_routes", label: "Tourist Routes" },
-  ]; 
+    { value: "sites_museums", label: "Sites + Museums" }, // was "Museums"
+  ];
+  
 
   const renderOption = (option) => {
     const isChecked = filters.category.includes(option.value);
@@ -106,9 +106,9 @@ const Sidebar = ({ filters, onFiltersChange }) => {
     </div>
   );
 
-  if (loading) {
-    return renderSkeleton();
-  }
+  // if (loading) {
+  //   return renderSkeleton();
+  // }
 
   // Render actual Sidebar content once loading is complete
   return (
