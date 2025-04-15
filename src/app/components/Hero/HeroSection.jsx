@@ -4,13 +4,21 @@ import styles from './Hero.module.css';
 import { Row, Col } from 'antd'; 
 import { CiSearch } from 'react-icons/ci'; 
 
-const SearchBar = () => {
+const SearchBar = ({ onSearch }) => {
   const [searchValue, setSearchValue] = useState('');
 
   const handleSearch = () => {
-    console.log('Searching for:', searchValue);
-    // Add your search logic here
+    if (onSearch) {
+      onSearch(searchValue); // Pass value up to parent
+    }
   };
+  const handleKeyPress = (e) => {
+    // If Enter key is pressed (keyCode 13)
+    if (e.key === 'Enter') {
+      handleSearch();
+    }
+  };
+
 
   return (
     <div className={styles.searchbar}>
@@ -19,6 +27,7 @@ const SearchBar = () => {
         placeholder="Search for any destination"
         value={searchValue}
         onChange={(e) => setSearchValue(e.target.value)}
+        onKeyUp={handleKeyPress}
         className={styles.input}
       />
       <button className={styles.searchButton} onClick={handleSearch}>
@@ -29,7 +38,7 @@ const SearchBar = () => {
 };
 
 
-const Hero = () => {
+const Hero = ({ onSearch }) => {
   return (
     <div className={styles.main}>
       <div className={styles.herosection}>
@@ -64,7 +73,7 @@ const Hero = () => {
               lg={12} 
 
             >
-              <SearchBar />
+              <SearchBar  onSearch={onSearch}/>
             </Col>
           </Row>
         </div>

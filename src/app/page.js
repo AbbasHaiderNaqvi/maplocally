@@ -1,4 +1,5 @@
 "use client"
+import React, { useState } from 'react';
 import { motion } from "framer-motion";
 import FaqSection from "./components/FAQ's/faq";
 import Feedback from "./components/Feedback/Feedback";
@@ -13,14 +14,15 @@ const sectionVariants = {
 };
 
 export default function Home() {
+  const [searchValue, setSearchValue] = useState('');
   return (
     <div className="max-w-6xl mx-auto px-4">
       <motion.div initial="hidden" animate="visible" variants={sectionVariants}>
-        <Hero />
+        <Hero onSearch={setSearchValue}/>
       </motion.div>
 
       <motion.div initial="hidden" animate="visible" variants={sectionVariants}>
-        <Post />
+        <Post  search={searchValue} />
       </motion.div>
 
       <motion.div initial="hidden" animate="visible" variants={sectionVariants}>

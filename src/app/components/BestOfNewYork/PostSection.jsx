@@ -21,6 +21,7 @@ const PostSection = ({ filters }) => {
             category: filters.category.join(","),
             minPrice: filters.priceRange[0],
             maxPrice: filters.priceRange[1],
+            search: filters.search,
             people: filters.people === "any" ? undefined : filters.people,
             date: filters.date ? filters.date.toISOString().split("T")[0] : null,
           },

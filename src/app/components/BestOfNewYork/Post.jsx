@@ -8,12 +8,13 @@ import styles from "./Post.module.css"
 
 const { Sider, Content } = Layout
 
-function Post() {
+function Post({ search }) {
   const [filters, setFilters] = useState({
     category: [],
     date: null,
     people: "",
     priceRange: [0, 2000],
+    search:""
   })
 
   const [loading, setLoading] = useState(true)
@@ -24,7 +25,14 @@ function Post() {
     setFilters(updatedFilters)
     setLoading(true)
   }
+  useEffect(() => {
+    setFilters((prev) => ({
+      ...prev,
+      search: search || "",
+    }))
+    console.log(search)
 
+  }, [search])
   useEffect(() => {
     const fetchData = async () => {
       const MIN_DISPLAY_TIME = 2000
