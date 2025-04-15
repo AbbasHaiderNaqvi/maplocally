@@ -20,3 +20,9 @@
   position: relative;
 
 }
+.noResults {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #888;
+  padding: 2rem 0;
+}

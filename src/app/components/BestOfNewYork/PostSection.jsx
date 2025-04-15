@@ -48,11 +48,15 @@ const PostSection = ({ filters }) => {
   }, [filters]);
 
   return (
+
     <div className={styles.postSection}>
       <h2 className={styles.title}>The Best of New York&apos;s</h2>
+      {!loading&&posts1.length === 0 && posts2.length === 0 && posts3.length === 0?<div className={styles.noResults}>No results found.</div>:<></>}
+
       <PostRow posts={posts1} loading={loading} />
       <PostRow posts={posts2} loading={loading} />
       <PostRow posts={posts3} loading={loading} />
+
     </div>
   );
 };
