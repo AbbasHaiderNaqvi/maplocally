@@ -3,7 +3,7 @@ import { useState, useEffect } from "react"
 import Sidebar from "./Sidebar"
 import PostSection from "./PostSection"
 import { Layout, Skeleton, Button } from "antd"
-import { FilterOutlined } from "@ant-design/icons"
+import { FilterOutlined, CloseOutlined } from "@ant-design/icons"
 import styles from "./Post.module.css"
 
 const { Sider, Content } = Layout
@@ -14,7 +14,7 @@ function Post({ search }) {
     date: null,
     people: "",
     priceRange: [0, 2000],
-    search:""
+    search: ""
   })
 
   const [loading, setLoading] = useState(true)
@@ -25,14 +25,15 @@ function Post({ search }) {
     setFilters(updatedFilters)
     setLoading(true)
   }
+
   useEffect(() => {
     setFilters((prev) => ({
       ...prev,
       search: search || "",
     }))
     console.log(search)
-
   }, [search])
+
   useEffect(() => {
     const fetchData = async () => {
       const MIN_DISPLAY_TIME = 2000
@@ -47,14 +48,15 @@ function Post({ search }) {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768)
+      console.log(window.innerWidth < 1200)
+      setIsMobile(window.innerWidth < 1200)
     }
 
     // Initial check on mount
     handleResize()
 
     window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
+    // return () => window.removeEventListener("resize", handleResize)
   }, [])
 
   return (
@@ -66,25 +68,25 @@ function Post({ search }) {
         collapsed={isMobile && collapsed}
         trigger={null}
         style={{ background: "#fff", padding: "20px" }}
-        breakpoint="md"
+        breakpoint="lg"
+        
       >
         <Sidebar filters={filters} onFiltersChange={handleFiltersChange} />
       </Sider>
 
       <Layout className={styles.contentSection}>
-        {/* Toggle Sidebar for Mobile */}
+        {/* Mobile Filter Button */}
         {isMobile && (
           <Button
             className={styles.menuButton}
-            style={{ background: "#007e9b", color: "white" }}
+            style={{ background: "#007e9b", color: "white", margin: "10px" }}
             icon={<FilterOutlined />}
             onClick={() => setCollapsed(!collapsed)}
           />
         )}
 
         <Content>
-        <PostSection loading={loading} filters={filters} />
-
+          <PostSection loading={loading} filters={filters} />
         </Content>
       </Layout>
     </Layout>

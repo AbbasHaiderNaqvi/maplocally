@@ -87,7 +87,7 @@ const Productform = () => {
   const fetchProductDetails = async (id) => {
     try {
       const response = await axios.get(
-        `http://localhost:3002/api/get-product/${id}`
+        `https://maplocally-be.vercel.app/api/get-product/${id}`
       );
       const product = response.data.data;
 
@@ -128,7 +128,7 @@ const Productform = () => {
       if (productId) {
         // Update product
         await axios.put(
-          `http://localhost:3002/api/update-product/${productId}`,
+          `https://maplocally-be.vercel.app/api/update-product/${productId}`,
           {
             title: values.title,
             subTitle: values.subTitle,
@@ -156,8 +156,8 @@ const Productform = () => {
         router.push("/admin/dashboard/product-list");
       } else {
         const apiUrl = isFeatured
-          ? `http://localhost:3002/api/create-featured-product`
-          : `http://localhost:3002/api/create-product`;
+          ? `https://maplocally-be.vercel.app/api/create-featured-product`
+          : `https://maplocally-be.vercel.app/api/create-product`;
         await axios.post(apiUrl, {
           title: values.title,
           subTitle: values.subTitle,

@@ -7,7 +7,7 @@ import axios from "axios";
 const fetchProducts = async () => {
   try {
     const response = await axios.get(
-      "http://localhost:3002/api/get-featured-products",
+      "https://maplocally-be.vercel.app/api/get-featured-products",
       {
         headers: {
           "Content-Type": "application/json",

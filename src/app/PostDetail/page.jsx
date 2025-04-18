@@ -46,7 +46,7 @@ const PostDetail = ({ searchParams }) => {
 
         const fetchProduct = async () => {
             try {
-                const response = await axios.get(`http://localhost:3002/api/get-product/${id}`);
+                const response = await axios.get(`https://maplocally-be.vercel.app/api/get-product/${id}`);
                 if (response.data.success) {
                     const productData = response.data.data;
                     setFetchedProduct(productData);

@@ -13,7 +13,7 @@ const ViewArticle = ({ params }) => {
     if (id) {
       const fetchArticle = async () => {
         try {
-          const response = await axios.get(`http://localhost:3002/api/get-article/${id}`);
+          const response = await axios.get(`https://maplocally-be.vercel.app/api/get-article/${id}`);
           setArticle(response.data.data);
         } catch (error) {
           console.error("Error fetching article details:", error);

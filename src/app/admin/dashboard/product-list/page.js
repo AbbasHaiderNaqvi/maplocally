@@ -19,7 +19,7 @@ const ProductList = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("http://localhost:3002/api/get-products", {
+        const response = await axios.get("https://maplocally-be.vercel.app/api/get-products", {
           headers: {
             "Content-Type": "application/json",
           },
@@ -49,7 +49,7 @@ const ProductList = () => {
     if (!confirmDelete) return;
 
     try {
-      const response = await axios.delete(`http://localhost:3002/api/delete-product/${productId}`, {
+      const response = await axios.delete(`https://maplocally-be.vercel.app/api/delete-product/${productId}`, {
         headers: {
           "Content-Type": "application/json",
         },
