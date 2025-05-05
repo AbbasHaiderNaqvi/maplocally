@@ -70,18 +70,15 @@ const PostRow = ({ posts, loading }) => {
 
   return (
     <div className={styles.cardRowContainer}>
-      {isScrollable && scrollPos > 0 && (
+      {scrollPos > 0 && (
         <button className={`${styles.arrowButton} ${styles.left}`} onClick={scrollLeft}>
           <LeftOutlined />
         </button>
       )}
-      {isScrollable &&
-        rowRef.current &&
-        scrollPos < rowRef.current.scrollWidth - rowRef.current.clientWidth - 5 && (
+
           <button className={`${styles.arrowButton} ${styles.right}`} onClick={scrollRight}>
             <RightOutlined />
           </button>
-        )}
       <div className={styles.cardRow} ref={rowRef}>
         {posts.map((post) => {
           const hasImage = post.productImages && post.productImages.length > 0;

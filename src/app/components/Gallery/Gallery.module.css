@@ -139,3 +139,33 @@
     /* }  */
   }
   
+  /* Carousel wrapper to apply scoped styles */
+.sliderWrapper :global(.slick-prev),
+.sliderWrapper :global(.slick-next) {
+  background: white !important;
+  color: black !important;
+  font-size: 40px !important;
+  border-radius: 50%;
+  z-index: 2;
+  opacity: 1 !important;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+}
+
+/* Position arrows correctly */
+.sliderWrapper :global(.slick-prev) {
+  left: 20px !important;
+}
+.sliderWrapper :global(.slick-next) {
+  right: 20px !important;
+}
+
+/* Arrow icon inside button */
+.sliderWrapper :global(.slick-prev)::before,
+.sliderWrapper :global(.slick-next)::before {
+  color: black !important;
+  font-size: 40px !important;
+
+}
+.sliderWrapper .slick-prev::after{
+ margin: 20px !important;
+}

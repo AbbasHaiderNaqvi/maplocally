@@ -1,69 +1,60 @@
-.signupContainer { 
+.signupContainer {
   width: 100%;
-  height: 600px;
-  padding: 0;
-  position: relative;
-  overflow: hidden;
   margin-top: 100px;
-}
-
-.backgroundImage {
-  position: absolute;
-  margin-top: -50px;
-  top: 0;
-  left: 0;
-  margin-left: 5%;
-  width: 95%;
-  height: 570px;
-  z-index: -1;
+  padding: 0 20px;
 }
 
 .row {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
-  justify-content: flex-start;
-  z-index: 1;
 }
 
+.leftSection,
 .rightSection {
   width: 100%;
-  max-width: 500px;
-  display: flex;
-  flex-direction: column;
-  padding-left: 20px;
-  margin-left: 550px;
-  margin-top: 200px;
+  padding: 20px;
+}
+
+/* On desktop: split 50/50 */
+@media (min-width: 1024px) {
+  .leftSection,
+  .rightSection {
+    width: 50%;
+  }
+}
+
+.backgroundImage {
+  width: 140%;
+  /* max-width: 500px; */
+  position: relative;
+  left: 15rem;
+  margin: 0 auto;
 }
 
 .content {
-  padding: 20px;
-  background: transparent;
-  position: absolute;
-  left: 100px;
-  bottom: -120px;
-  width: 500px;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 .hd {
   font-size: 26px;
   font-weight: 600;
   margin-bottom: 20px;
-  margin-right: 10px;
-  margin-left: -20px;
+  text-align: center;
 }
 
 .para {
   font-size: 14px;
   color: #4d4d4d;
   margin-bottom: 20px;
-  margin-left: -20px;
-  margin-right: 50px;
+  text-align: center;
 }
 
 .emailInput {
   width: 100%;
   margin-top: 15px;
-  z-index: 4;
 }
 
 .submitButton {
@@ -73,193 +64,45 @@
 }
 
 .terms {
-  margin-top: -120px;
-  font-size: 16px;
-  margin-left: 70px;
-  margin-bottom: 120px;
-  width: 900px;
+  font-size: 14px;
   color: #8b8989;
-  text-align: left;
+  text-align: center;
+  margin-top: 30px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
 }
 
-/* Media Queries for Responsiveness */
-
-@media (max-width: 1300px){
-  .hd {
-    font-size: 26px;
-    font-weight: 600;
-    margin-bottom: 20px;
-    margin-left: -70px;
-  }
-  .para {
-    font-size: 14px;
-    color: #4d4d4d;
-    margin-bottom: 20px;
-    margin-left: -70px;
-    margin-right: 150px;
-  }
-  .emailInput {
-    width: 100%;
-    margin-top: 15px;
-    z-index: 4;
-    margin-left: -70px;
-  }
-}
-@media (max-width: 1250px){
-  .hd {
-    font-size: 26px;
-    font-weight: 600;
-    margin-bottom: 20px;
-    margin-left: -80px;
-  }
-  .para {
-    font-size: 14px;
-    color: #4d4d4d;
-    margin-bottom: 20px;
-    margin-left: -80px;
-    margin-right: 150px;
-  }
-}
-@media (max-width: 1200px){
-  .hd {
-    font-size: 26px;
-    font-weight: 600;
-    margin-bottom: 20px;
-    margin-left: -120px;
-  }
-  .para {
-    font-size: 14px;
-    color: #4d4d4d;
-    margin-bottom: 20px;
-    margin-left: -120px;
-    margin-right: 150px;
-  }
-  .emailInput {
-    width: 100%;
-    margin-top: 15px;
-    z-index: 4;
-    margin-left: -100px;
-  }
-}
-@media (max-width: 1150px){
-  .hd {
-    font-size: 26px;
-    font-weight: 600;
-    margin-bottom: 20px;
-    margin-left: -150px;
-  }
-  .para {
-    font-size: 14px;
-    color: #4d4d4d;
-    margin-bottom: 20px;
-    margin-left: -150px;
-    margin-right: 150px;
-  }
-  .emailInput {
-    width: 100%;
-    margin-top: 15px;
-    z-index: 4;
-    margin-left: -140px;
-  }
-}
-/* For tablet screens and below */
+/* Responsive font sizing for smaller screens */
 @media (max-width: 768px) {
-  .signupContainer {
-    height: 500px;
-    margin-top: 50px; /* Reduce top margin on smaller screens */
-  }
-
-  .backgroundImage {
-    height: 450px; /* Adjust height of the background image */
-    margin-left: 0; /* Center the image */
-    width: 100%;
-  }
-
-  .row {
-    justify-content: center;
-  }
-
-  .rightSection {
-    margin-left: 0;
-    margin-top: 100px; /* Adjust margin for smaller screens */
-    padding-left: 0;
-    align-items: center;
-  }
-
-  .content {
-    width: 90%;
-    left: 0;
-    bottom: 20px; /* Adjust position to prevent content from being cut off */
-  }
-
   .hd {
-    font-size: 24px; /* Adjust font size for smaller screens */
-    text-align: center; /* Center text on smaller screens */
+    font-size: 22px;
   }
 
   .para {
-    font-size: 12px;
-    text-align: center; /* Center paragraph text */
-  }
-
-  .emailInput {
-    margin-top: 20px;
-  }
-
-  .submitButton {
-    width: 100%;
-    border-radius: 10px; /* Adjust button radius for smaller screens */
+    font-size: 13px;
   }
 
   .terms {
-    margin-left: 0;
-    width: 100%;
-    font-size: 14px;
-    text-align: center; /* Center the terms and conditions */
-    margin-top: 20px;
+    font-size: 13px;
   }
 }
 
-/* For mobile screens and below */
 @media (max-width: 480px) {
-  .signupContainer {
-    height: 400px;
-    margin-top: 20px;
-  }
-
-  .backgroundImage {
-    height: 350px;
-  }
-
-  .rightSection {
-    margin-top: 50px;
-  }
-
-  .content {
-    width: 90%;
-    left: 0;
-    bottom: 0;
-  }
-
   .hd {
-    font-size: 20px; /* Adjust font size further for mobile */
+    font-size: 20px;
   }
 
   .para {
     font-size: 12px;
   }
 
-  .emailInput {
-    margin-top: 20px;
-  }
-
   .submitButton {
-    width: 100%;
+    border-radius: 10px;
   }
 
   .terms {
     font-size: 12px;
-    text-align: center;
-    margin-top: 20px;
   }
 }

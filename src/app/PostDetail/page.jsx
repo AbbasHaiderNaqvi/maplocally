@@ -106,7 +106,7 @@ const PostDetail = ({ searchParams }) => {
 
       />
             <MightAlsoLike loading={loading} />
-            <Review />
+            {/* <Review /> */}
             <TravelSignup />
             <Feedback loading={loading} />
             <FaqSection loading={loading} />

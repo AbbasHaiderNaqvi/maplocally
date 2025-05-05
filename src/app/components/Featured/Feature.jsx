@@ -25,10 +25,10 @@ const fetchProducts = async () => {
       category: product.category,
       img: product.productImages.length > 0 ? product.productImages[0] : "https://via.placeholder.com/150", // Default placeholder
       tags: product.tags || [],
-      description: product.highlights.length > 0 ? product.highlights[0] : "No highlights available",
+      description: product.highlights[0],
     }));
   } catch (error) {
-    console.error("Failed to fetch products:", error);
+    console.error("", error);
     return [];
   }
 };

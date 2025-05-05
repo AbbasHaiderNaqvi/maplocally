@@ -80,7 +80,7 @@ import axios from "axios";
         setPlaces(filteredArticles);
     
       } catch (error) {
-        console.error("Failed to fetch products:", error);
+        console.error("", error);
       }
     };
     

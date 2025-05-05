@@ -103,6 +103,7 @@
   top: 50%;
   transform: translateY(-50%);
   z-index: 3;
+  opacity: 0.5;
 }
 
 .arrowButton.left {
@@ -112,7 +113,7 @@
 }
 
 .arrowButton.right {
-  right: 10px;
+  right: 4%!important;
   z-index: 1000;
 }
 
@@ -134,10 +135,8 @@
     font-size: 14px;
   }
 
-  .arrowButton {
-    font-size: 20px;
-    padding: 8px;
-  }
+
+  
 }
 
 @media (max-width: 768px) {
@@ -153,10 +152,10 @@
     font-size: 12px;
   }
 
-  .arrowButton {
+  /* .arrowButton {
     font-size: 18px;
     padding: 6px;
-  }
+  } */
 }
 
 @media (max-width: 480px) {
@@ -185,10 +184,10 @@
     padding: 1px 4px; /* Reduce padding for mobile */
   }
 
-  .arrowButton {
+  /* .arrowButton {
     font-size: 16px;
     padding: 4px;
-  }
+  } */
 }
 .cardAvatar {
   width: 100%;

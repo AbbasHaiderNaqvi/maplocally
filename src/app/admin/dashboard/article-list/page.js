@@ -27,7 +27,7 @@ const ProductList = () => {
         });
         setProducts(Array.isArray(response.data.data) ? response.data.data : []);
       } catch (error) {
-        console.error("Failed to fetch products:", error);
+        console.error("", error);
       }
     };
 

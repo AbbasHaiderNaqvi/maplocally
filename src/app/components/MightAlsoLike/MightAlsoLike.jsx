@@ -36,7 +36,7 @@ function MightAlsoLike() {
         setPosts2(data.slice(chunkSize, chunkSize * 2));
         setPosts3(data.slice(chunkSize * 2));
       } catch (err) {
-        setError("Failed to fetch related products.");
+        setError("");
         console.error(err);
       } finally {
         setLoading(false);
@@ -56,12 +56,16 @@ function MightAlsoLike() {
 
   return (
     <div className={styles.mainsection}>
-      <h2 className={styles.title}>You might also like...</h2>
-      <div className={styles.animatedSection}>
-        <PostRow posts={posts1} loading={loading} />
-        <PostRow posts={posts2} loading={loading} />
-        <PostRow posts={posts3} loading={loading} />
-      </div>
+      {posts1 &&
+      <>
+         {/* <h2 className={styles.title}>You might also like...</h2> */}
+         <div className={styles.animatedSection}>
+           <PostRow posts={posts1} loading={loading} />
+           <PostRow posts={posts2} loading={loading} />
+           <PostRow posts={posts3} loading={loading} />
+         </div></>
+         }
+   
     </div>
   );
 }

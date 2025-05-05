@@ -344,7 +344,7 @@ const Productform = () => {
             },
             {
               validator: (_, value) =>
-                value && (!value.includes("google"))
+                value && (!value.includes(".com"))
                   ? Promise.reject("URL must be a Google Maps link")
                   : Promise.resolve(),
             },
