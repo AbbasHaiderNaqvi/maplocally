@@ -11,9 +11,8 @@ const PostSection = () => {
   useEffect(() => {
     const fetchFilteredProducts = async () => {
       setLoading(true);
-
       const startTime = Date.now();
-
+    
       try {
         const response = await axios.get("https://maplocally-be.vercel.app/api/product-filter", {
           params: {
@@ -24,20 +23,28 @@ const PostSection = () => {
             // date: filters.date ? filters.date.toISOString().split("T")[0] : null,
           },
         });
-
-        const data = Array.isArray(response.data.data) ? response.data.data : [];
+    
+        let data = Array.isArray(response.data.data) ? response.data.data : [];
+    
+        // Sort by createdAt or id in descending order (adjust the key accordingly)
+        data = data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+    
+        // Take the first 10 items
+        data = data.slice(0, 10);
+    
         setPosts(data);
       } catch (error) {
         console.error("Failed to fetch filtered products:", error);
       } finally {
         const elapsedTime = Date.now() - startTime;
         const remainingTime = Math.max(0, 1000 - elapsedTime);
-
+    
         setTimeout(() => {
           setLoading(false);
         }, remainingTime);
       }
     };
+    
 
     fetchFilteredProducts();
   }, []);

@@ -112,7 +112,7 @@ const Navbar = () => {
             <Link href="/top-ten">{t('Top Places')}</Link>
           </li>
           <li>
-            <Link href="/recently-viewed">{t('Most Viewed')}</Link>
+            <Link href="/recent">{t('Recent')}</Link>
           </li>
           <li>
           <Link href="/contact">{t('Contact Us')}</Link>
@@ -157,7 +157,7 @@ const Navbar = () => {
             <Link href="/top-ten">{t('Top Places')}</Link>
             </li>
             <li onClick={() => setDrawerVisible(false)}>
-              <Link href="/recently-viewed">{t('Most Viewed')}</Link>
+              <Link href="/recent">{t('Recent')}</Link>
             </li>
             <li onClick={() => setDrawerVisible(false)}>
               <Link href="/contact">{t('Contact Us')}</Link>
