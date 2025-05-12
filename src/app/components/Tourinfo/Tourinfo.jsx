@@ -25,7 +25,7 @@ const Tourinfo = ({ details, loading }) => {
             const hasTitle = !!detail.title;
             const hasDescription = !!detail.description;
 
-            if (!hasImage && !hasTitle && !hasDescription) return null;
+            if (!hasDescription) return null;
 
             return (
               <Col key={index} span={24}>

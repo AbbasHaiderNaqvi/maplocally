@@ -22,22 +22,22 @@ const PostDetail = ({ searchParams }) => {
         {
             image: "https://i.ibb.co/555Rvxy/Group-48101161.png",
             title: "Duration",
-            description: "Check availability",
+            description: "",
         },
         {
             image: "https://i.ibb.co/8z1SrhM/Group-48101165.png",
             title: "Language",
-            description: "French",
+            description: "",
         },
         {
             image: "https://i.ibb.co/VL0rbqd/Group-48101160.png",
             title: "Pickup optional",
-            description: "Pickup details will be updated dynamically",
+            description: "",
         },
         {
             image: "https://i.ibb.co/x5LYGrY/Group-48101166.png",
             title: "Small group",
-            description: "Limited to participants",
+            description: "",
         },
     ]);
 
@@ -54,19 +54,19 @@ const PostDetail = ({ searchParams }) => {
                     setDetails((prevDetails) => [
                         {
                             ...prevDetails[0],
-                            description: productData.tourDuration || "Check availability",
+                            description: productData.tourDuration || "",
                         },
                         {
                             ...prevDetails[1],
-                            description: productData.tourLanguage || "English",
+                            description: productData.tourLanguage || "",
                         },
                         {
                             ...prevDetails[2],
-                            description: productData.pickupOption || "Pickup details not available",
+                            description: productData.pickupOption || "",
                         },
                         {
                             ...prevDetails[3],
-                            description: `Limited to ${productData.groupSize || "participants"}`,
+                            description: productData.groupSize?`Limited to ${productData.groupSize || ""}`:"",
                         },
                     ]);
                 } else {
@@ -93,9 +93,14 @@ const PostDetail = ({ searchParams }) => {
                 title="Brief about the place"
                 sections={fetchedProduct?.briefDescription ? [fetchedProduct.briefDescription] : []}
                 loading={loading}
-            />
-            <h2 className={styles.hd}>Tour Information</h2>
-            <Tourinfo details={details} loading={loading} />
+            />{
+               ( !fetchedProduct?.tourDuration & !fetchedProduct?.tourLanguage & !fetchedProduct?.pickupOption & !fetchedProduct?.groupSize) ?<></>:
+                <>
+                    <h2 className={styles.hd}>Tour Information</h2>
+                    <Tourinfo details={details} loading={loading} />
+                </>
+            }
+            
             <Experience
                 fullDescription={fetchedProduct?.fullDescription || ""}
                 highlights={fetchedProduct?.highlights || []}

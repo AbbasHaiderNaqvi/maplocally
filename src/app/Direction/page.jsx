@@ -21,7 +21,7 @@ const Direction = ({searchParams}) => {
         {
             image: "https://i.ibb.co/555Rvxy/Group-48101161.png", // Duration image URL
             title: "Duration",
-            description: "Check availability", // Placeholder, will be updated dynamically
+            description: "", // Placeholder, will be updated dynamically
         },
         {
             image: "https://i.ibb.co/8z1SrhM/Group-48101165.png", // Live tour image URL
@@ -54,7 +54,7 @@ const Direction = ({searchParams}) => {
                     setDetails((prevDetails) => [
                         {
                             ...prevDetails[0],
-                            description: productData.tourDuration || "Check availability",
+                            description: productData.tourDuration,
                         },
                         {
                             ...prevDetails[1],

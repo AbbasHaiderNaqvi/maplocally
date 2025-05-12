@@ -138,17 +138,17 @@ const Productform = () => {
             price: values.price,
             highlights,
             mapeLink,
-            // includes,
+            includes,
             // latitude,
             mapeLink,
             longitude,
             category: selectedCategory,
             tourDate: tourDate ? dayjs(tourDate).format("YYYY-MM-DD") : null,
             productImages,
-            tourDuration: values.tourDuration,
+            tourDuration: values.tourDuration ? values.tourDuration :"",
             tourLanguage: values.tourLanguage,
             pickupOption: values.pickupOption,
-            groupSize: values.groupSize,
+            groupSize: values.groupSize ? values.groupSize :"",
             meetingPoint: values.meetingPoint,
           }
         );
@@ -299,7 +299,7 @@ const Productform = () => {
           name="tourDuration"
           // rules={[{ required: true }]}
         >
-          <Select placeholder="Select duration">
+          <Select placeholder="Select duration" allowClear>
             {Array.from({ length: 24 }, (_, i) => (
               <Option key={i + 1} value={`${i + 1} hours`}>
                 {i + 1} hours
@@ -318,7 +318,7 @@ const Productform = () => {
           name="groupSize"
           // rules={[{ required: true }]}
         >
-          <Select placeholder="Select group size">
+          <Select placeholder="Select group size" allowClear>
             {Array.from({ length: 10 }, (_, i) => (
               <Option key={(i + 1) * 5} value={(i + 1) * 5}>
                 {(i + 1) * 5}
