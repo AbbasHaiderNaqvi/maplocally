@@ -1,8 +1,10 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { UploadOutlined } from "@ant-design/icons";
+import { UploadOutlined, CheckOutlined,CloseOutlined } from "@ant-design/icons";
 import { useRouter, useSearchParams } from "next/navigation";
 import {
+  Row,
+  Col,
   Form,
   Input,
   Button,
@@ -145,10 +147,10 @@ const Productform = () => {
             category: selectedCategory,
             tourDate: tourDate ? dayjs(tourDate).format("YYYY-MM-DD") : null,
             productImages,
-            tourDuration: values.tourDuration ? values.tourDuration :"",
+            tourDuration: values.tourDuration ? values.tourDuration : "",
             tourLanguage: values.tourLanguage,
             pickupOption: values.pickupOption,
-            groupSize: values.groupSize ? values.groupSize :"",
+            groupSize: values.groupSize ? values.groupSize : "",
             meetingPoint: values.meetingPoint,
           }
         );
@@ -191,15 +193,51 @@ const Productform = () => {
   return (
     <div>
       <Sidebar />
-      <h1 className={styles.title}>
-        {productId ? "Edit Product" : "Create Product"}
-      </h1>
       <Form
         form={form}
         onFinish={handleSubmit}
         layout="vertical"
         className={styles.mainContent}
+        style={{
+          paddingTop: '90px',
+        }}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            e.preventDefault();
+          }
+        }}
       >
+        <div
+          style={{
+            position: 'fixed',
+            zIndex: 2,
+            width: '100%',
+            background: 'white',
+            padding: '16px 0',
+            top: 0,
+            display: 'flex',
+            alignItems: 'center',
+            gap: '16px',
+          }}
+        >
+          <h1
+            className={styles.title}
+            style={{ margin: 0 }}
+          >
+            {productId ? 'Edit Product' : 'Create Product'}
+          </h1>
+
+          <Button
+            htmlType="submit"
+            style={{ margin: '0', background: 'rgb(10 129 157)', color: "white" }}
+            className={styles.submitButton}
+            icon={<CheckOutlined />}
+          >
+            Save
+          </Button>
+        </div>
+
+
         {/* Basic Information */}
         <Form.Item
           label="Title"
@@ -210,13 +248,13 @@ const Productform = () => {
         </Form.Item>
         <Form.Item label="Subtitle" name="subTitle"
           rules={[{ required: true, message: "Please enter the Subtitle" }]}
-          >
+        >
           <Input
             className={styles.input}
             placeholder="Enter product subtitle"
           />
         </Form.Item>
-        <Form.Item name="tags" label="Tags (Max 3)">
+        <Form.Item name="tags" label="Tags (Max 3)" >
           <Select
             mode="tags"
             maxTagCount={3}
@@ -225,7 +263,7 @@ const Productform = () => {
         </Form.Item>
         <Form.Item label="Brief Description" name="briefDescription"
           rules={[{ required: true, message: "Please enter the Brief Description" }]}
-          >
+        >
           <TextArea
             rows={4}
             placeholder="Enter brief description"
@@ -235,7 +273,7 @@ const Productform = () => {
 
         <Form.Item label="Full Description" name="fullDescription"
           rules={[{ required: true, message: "Please enter the Full Description" }]}
-          >
+        >
           <TextArea
             rows={6}
             placeholder="Enter full description"
@@ -245,7 +283,7 @@ const Productform = () => {
         <Form.Item
           label="Price"
           name="price"
-          // rules={[{ required: true, message: "Please enter the price" }]}
+        // rules={[{ required: true, message: "Please enter the price" }]}
         >
           <Input
             type="number"
@@ -254,18 +292,20 @@ const Productform = () => {
           />
         </Form.Item>
 
-        <Form.Item label="Highlights" >
+        <Form.Item label="Highlights"  name="highlightInput">
           <Space direction="vertical">
             <Input
               placeholder="Add highlight"
               onPressEnter={(e) => {
                 if (e.target.value.trim() !== "") {
                   setHighlights([...highlights, e.target.value.trim()]);
+                  form.resetFields(["highlightInput"]);
                   e.target.value = "";
                 }
               }}
+              suffix={<Button onClick={() => setHighlights([])}  icon={<CloseOutlined />} disabled={!highlights.length}>Clear All</Button>}
             />
-            <Button onClick={() => setHighlights([])}>Clear</Button>
+            
             <ul>
               {highlights.map((item, index) => (
                 <li key={index}>{item}</li>
@@ -274,7 +314,7 @@ const Productform = () => {
           </Space>
         </Form.Item>
 
-        <Form.Item label="Includes">
+        <Form.Item label="Includes" name="IncludeInput">
           <Space direction="vertical">
             <Input
               placeholder="Add include"
@@ -282,10 +322,13 @@ const Productform = () => {
                 if (e.target.value.trim() !== "") {
                   setIncludes([...includes, e.target.value.trim()]);
                   e.target.value = "";
+                  form.resetFields(["IncludeInput"]);
+
                 }
               }}
+              suffix={ <Button onClick={() => setIncludes([])} icon={<CloseOutlined />} disabled={!includes.length}>Clear All</Button>}
             />
-            <Button onClick={() => setIncludes([])}>Clear</Button>
+           
             <ul>
               {includes.map((item, index) => (
                 <li key={index}>{item}</li>
@@ -297,7 +340,7 @@ const Productform = () => {
         <Form.Item
           label="Tour Duration"
           name="tourDuration"
-          // rules={[{ required: true }]}
+        // rules={[{ required: true }]}
         >
           <Select placeholder="Select duration" allowClear>
             {Array.from({ length: 24 }, (_, i) => (
@@ -316,7 +359,7 @@ const Productform = () => {
         <Form.Item
           label="Group Size"
           name="groupSize"
-          // rules={[{ required: true }]}
+        // rules={[{ required: true }]}
         >
           <Select placeholder="Select group size" allowClear>
             {Array.from({ length: 10 }, (_, i) => (
@@ -367,22 +410,22 @@ const Productform = () => {
             />
           </Form.Item> */}
 
-<Form.Item label="Category">
-  <Select
-    value={selectedCategory}
-    onChange={(value) => setSelectedCategory(value)}
-    placeholder="Select category"
-    className={styles.select}
-  >
-    <Option value="guide">Your Local Guide</Option>
-    <Option value="neighborhoods">Neighborhoods</Option>
-    <Option value="restaurants_bars">Restaurants + Bars</Option>
-    <Option value="entertainment">Entertainment</Option> {/* was Broadway Shows */}
-    <Option value="events">Events</Option>
-    <Option value="music">Music</Option>
-    <Option value="sites_museums">Sites + Museums</Option> {/* was Museums */}
-  </Select>
-</Form.Item>
+        <Form.Item label="Category">
+          <Select
+            value={selectedCategory}
+            onChange={(value) => setSelectedCategory(value)}
+            placeholder="Select category"
+            className={styles.select}
+          >
+            <Option value="guide">Your Local Guide</Option>
+            <Option value="neighborhoods">Neighborhoods</Option>
+            <Option value="restaurants_bars">Restaurants + Bars</Option>
+            <Option value="entertainment">Entertainment</Option> {/* was Broadway Shows */}
+            <Option value="events">Events</Option>
+            <Option value="music">Music</Option>
+            <Option value="sites_museums">Sites + Museums</Option> {/* was Museums */}
+          </Select>
+        </Form.Item>
 
 
         <Form.Item label="Tour Date">
@@ -437,13 +480,7 @@ const Productform = () => {
           />
         </Form.Item>
 
-        <Button
-          type="primary"
-          htmlType="submit"
-          className={styles.submitButton}
-        >
-          {productId ? "Update Product" : "Create Product"}
-        </Button>
+
       </Form>
     </div>
   );
